@@ -1,0 +1,823 @@
+// Portfolio Website JavaScript - Main functionality
+
+// Global variables
+let projects = [];
+let currentFilter = 'all';
+let skillsChart = null;
+let languageChart = null;
+
+// Project data with comprehensive information
+const projectData = [
+    {
+        id: 1,
+        title: "Computer Vision for Root Segmentation",
+        role: "computer-vision",
+        category: "ml-engineer",
+        image: "resources/project-covers/cv-medical.jpg",
+        description: "Advanced computer vision system for automated root segmentation and robotic control in agricultural applications.",
+        technologies: ["Python", "OpenCV", "TensorFlow", "PyTorch", "ROS"],
+        githubUrl: "https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/CV_RootSegmentation%26RoboticControl",
+        client: "Research Institution",
+        duration: "3 months",
+        outcomes: [
+            "Achieved 94% accuracy in root segmentation",
+            "Reduced manual labor by 60%",
+            "Improved crop yield prediction accuracy"
+        ],
+        detailedDescription: "This project involved developing a sophisticated computer vision pipeline for automated root segmentation in agricultural settings. The system integrates deep learning models with robotic control systems to enable precise agricultural automation."
+    },
+    {
+        id: 2,
+        title: "ML Goal Prediction for NAC Breda",
+        role: "ml-engineer",
+        category: "data-scientist",
+        image: "resources/project-covers/ml-sports.jpg",
+        description: "Machine learning model for predicting football match outcomes and player performance analysis.",
+        technologies: ["Python", "Scikit-learn", "XGBoost", "Pandas", "Matplotlib"],
+        githubUrl: "https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/ML_GoalPrediction_NAC",
+        client: "NAC Breda Football Club",
+        duration: "4 months",
+        outcomes: [
+            "75% accuracy in match outcome prediction",
+            "Identified key performance indicators",
+            "Enhanced team strategy decisions"
+        ],
+        detailedDescription: "Developed predictive models for football match outcomes using historical data, player statistics, and team performance metrics. The system provides actionable insights for coaching staff and team management."
+    },
+    {
+        id: 3,
+        title: "NLP Content Intelligence Agency",
+        role: "nlp",
+        category: "data-scientist",
+        image: "resources/project-covers/nlp-analysis.jpg",
+        description: "Natural language processing system for content analysis and intelligence gathering.",
+        technologies: ["Python", "NLTK", "SpaCy", "Transformers", "BERT"],
+        githubUrl: "https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/NLP_ContentIntelligenceAgency",
+        client: "Content Intelligence Agency",
+        duration: "5 months",
+        outcomes: [
+            "Automated content categorization with 92% accuracy",
+            "Reduced manual review time by 80%",
+            "Enhanced content quality metrics"
+        ],
+        detailedDescription: "Built an advanced NLP pipeline for content analysis, sentiment analysis, and automated categorization. The system processes large volumes of text data to extract meaningful insights and patterns."
+    },
+    {
+        id: 4,
+        title: "Human Trafficking Data Analysis",
+        role: "data-analyst",
+        category: "data-analyst",
+        image: "resources/project-covers/bi-dashboard.jpg",
+        description: "Data analysis project supporting UN SDG 16 with comprehensive trafficking pattern analysis.",
+        technologies: ["Python", "R", "Tableau", "SQL", "Power BI"],
+        githubUrl: "https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/Human_Trafficking_Data_Analysis_(SDG16)",
+        client: "NGO Partnership",
+        duration: "6 months",
+        outcomes: [
+            "Identified trafficking hotspots and patterns",
+            "Provided data-driven policy recommendations",
+            "Contributed to UN SDG 16 initiatives"
+        ],
+        detailedDescription: "Comprehensive data analysis project examining human trafficking patterns globally. The analysis supports policy-making and intervention strategies aligned with UN Sustainable Development Goal 16."
+    },
+    {
+        id: 5,
+        title: "ML ANWB Traffic Prediction",
+        role: "ml-engineer",
+        category: "data-engineer",
+        image: "resources/project-covers/data-engineering.jpg",
+        description: "Machine learning system for traffic flow prediction and route optimization.",
+        technologies: ["Python", "Apache Spark", "Kafka", "TensorFlow", "PostgreSQL"],
+        githubUrl: "https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/ML_ANWB",
+        client: "ANWB (Dutch Automobile Association)",
+        duration: "4 months",
+        outcomes: [
+            "85% accuracy in traffic prediction",
+            "Reduced travel time by 15%",
+            "Improved route recommendation system"
+        ],
+        detailedDescription: "Developed a real-time traffic prediction system using machine learning models and big data technologies. The system processes streaming traffic data to provide accurate predictions and route recommendations."
+    },
+    {
+        id: 6,
+        title: "Policy Research for SMEs",
+        role: "data-analyst",
+        category: "data-analyst",
+        image: "resources/project-covers/bi-dashboard.jpg",
+        description: "Data-driven policy research and analysis for small and medium enterprises.",
+        technologies: ["R", "Python", "SPSS", "Excel", "Power BI"],
+        githubUrl: "https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/Policy_Research_for_SMEs",
+        client: "Government Agency",
+        duration: "3 months",
+        outcomes: [
+            "Comprehensive SME policy analysis",
+            "Data-driven policy recommendations",
+            "Impact assessment framework"
+        ],
+        detailedDescription: "Conducted comprehensive policy research and analysis for small and medium enterprises. The project involved statistical analysis, impact assessment, and policy recommendation development."
+    }
+];
+
+// Initialize the application
+document.addEventListener('DOMContentLoaded', function() {
+    initializeApp();
+});
+
+async function initializeApp() {
+    try {
+        // Initialize all components
+        initializeNavigation();
+        initializeHeroAnimations();
+        initializeProjectFilters();
+        initializeProjects();
+        initializeSkills();
+        initializeGitHubIntegration();
+        initializeContactForm();
+        initializeScrollReveal();
+        initializeP5Background();
+        
+        console.log('Portfolio initialized successfully');
+    } catch (error) {
+        console.error('Error initializing portfolio:', error);
+    }
+}
+
+// Navigation functionality
+function initializeNavigation() {
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // Mobile menu toggle
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Smooth scrolling for navigation links
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    });
+
+    // Active navigation highlighting
+    window.addEventListener('scroll', updateActiveNavigation);
+}
+
+function updateActiveNavigation() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    let current = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= sectionTop - 200) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('text-sage');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('text-sage');
+        }
+    });
+}
+
+// Hero section animations
+function initializeHeroAnimations() {
+    // Typewriter effect for name
+    new Typed('#typed-name', {
+        strings: ['Anastasiia Mokhonko'],
+        typeSpeed: 100,
+        backSpeed: 50,
+        backDelay: 2000,
+        loop: false,
+        showCursor: true,
+        cursorChar: '|'
+    });
+
+    // Typewriter effect for role
+    new Typed('#typed-role', {
+        strings: [
+            'Data Science & AI Student',
+            'Machine Learning Engineer',
+            'Computer Vision Specialist',
+            'NLP Practitioner',
+            'Real-World Problem Solver'
+        ],
+        typeSpeed: 80,
+        backSpeed: 40,
+        backDelay: 2000,
+        loop: true,
+        showCursor: true,
+        cursorChar: '|'
+    });
+}
+
+// Project filtering system
+function initializeProjectFilters() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.getAttribute('data-filter');
+            setActiveFilter(button);
+            filterProjects(filter);
+        });
+    });
+}
+
+function setActiveFilter(activeButton) {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(btn => btn.classList.remove('active'));
+    activeButton.classList.add('active');
+}
+
+function filterProjects(filter) {
+    currentFilter = filter;
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    projectCards.forEach(card => {
+        const projectRole = card.getAttribute('data-role');
+        const projectCategory = card.getAttribute('data-category');
+        
+        const shouldShow = filter === 'all' || 
+                          projectRole === filter || 
+                          projectCategory === filter;
+        
+        if (shouldShow) {
+            card.style.display = 'block';
+            anime({
+                targets: card,
+                opacity: [0, 1],
+                translateY: [30, 0],
+                duration: 600,
+                easing: 'easeOutCubic',
+                delay: Math.random() * 200
+            });
+        } else {
+            anime({
+                targets: card,
+                opacity: 0,
+                translateY: -30,
+                duration: 300,
+                easing: 'easeInCubic',
+                complete: () => {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    });
+}
+
+// Project cards initialization
+function initializeProjects() {
+    const projectsGrid = document.getElementById('projects-grid');
+    projectsGrid.innerHTML = '';
+    
+    projectData.forEach((project, index) => {
+        const projectCard = createProjectCard(project, index);
+        projectsGrid.appendChild(projectCard);
+    });
+    
+    // Animate project cards on load
+    anime({
+        targets: '.project-card',
+        opacity: [0, 1],
+        translateY: [50, 0],
+        duration: 800,
+        delay: anime.stagger(100),
+        easing: 'easeOutCubic'
+    });
+}
+
+function createProjectCard(project, index) {
+    const card = document.createElement('div');
+    card.className = 'project-card bg-white rounded-2xl overflow-hidden shadow-lg cursor-pointer';
+    card.setAttribute('data-role', project.role);
+    card.setAttribute('data-category', project.category);
+    card.onclick = () => openProjectModal(project);
+    
+    card.innerHTML = `
+        <div class="relative h-48 overflow-hidden">
+            <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
+            <div class="absolute top-4 right-4">
+                <span class="bg-sage text-white px-3 py-1 rounded-full text-sm font-medium">
+                    ${project.role.replace('-', ' ').toUpperCase()}
+                </span>
+            </div>
+        </div>
+        <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-charcoal">${project.title}</h3>
+            <p class="text-gray-600 mb-4 line-clamp-3">${project.description}</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+                ${project.technologies.slice(0, 3).map(tech => 
+                    `<span class="bg-cream text-charcoal px-3 py-1 rounded-full text-sm font-medium">${tech}</span>`
+                ).join('')}
+                ${project.technologies.length > 3 ? `<span class="text-gray-500 text-sm">+${project.technologies.length - 3} more</span>` : ''}
+            </div>
+            <div class="flex justify-between items-center text-sm text-gray-500">
+                <span>Client: ${project.client}</span>
+                <span>${project.duration}</span>
+            </div>
+        </div>
+    `;
+    
+    return card;
+}
+
+// Project modal functionality
+function openProjectModal(project) {
+    const modal = document.getElementById('project-modal');
+    const modalContent = document.getElementById('modal-content');
+    
+    modalContent.innerHTML = `
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div>
+                <img src="${project.image}" alt="${project.title}" class="w-full h-64 object-cover rounded-lg mb-6">
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="font-bold text-charcoal mb-2">Technologies Used</h4>
+                        <div class="flex flex-wrap gap-2">
+                            ${project.technologies.map(tech => 
+                                `<span class="bg-sage text-white px-3 py-1 rounded-full text-sm font-medium">${tech}</span>`
+                            ).join('')}
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-charcoal mb-2">Project Details</h4>
+                        <div class="text-sm text-gray-600 space-y-1">
+                            <p><strong>Client:</strong> ${project.client}</p>
+                            <p><strong>Duration:</strong> ${project.duration}</p>
+                            <p><strong>Role:</strong> ${project.role.replace('-', ' ').toUpperCase()}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-3xl font-bold mb-4 text-charcoal">${project.title}</h3>
+                <p class="text-gray-600 mb-6">${project.detailedDescription}</p>
+                
+                <div class="mb-6">
+                    <h4 class="font-bold text-charcoal mb-3">Key Outcomes</h4>
+                    <ul class="space-y-2">
+                        ${project.outcomes.map(outcome => 
+                            `<li class="flex items-start space-x-2">
+                                <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-600">${outcome}</span>
+                            </li>`
+                        ).join('')}
+                    </ul>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="${project.githubUrl}" target="_blank" class="bg-charcoal text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-all duration-300 flex items-center space-x-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        <span>View on GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    
+    // Animate modal appearance
+    anime({
+        targets: modal.querySelector('.bg-white'),
+        scale: [0.8, 1],
+        opacity: [0, 1],
+        duration: 400,
+        easing: 'easeOutCubic'
+    });
+}
+
+function closeModal() {
+    const modal = document.getElementById('project-modal');
+    
+    anime({
+        targets: modal.querySelector('.bg-white'),
+        scale: [1, 0.8],
+        opacity: [1, 0],
+        duration: 300,
+        easing: 'easeInCubic',
+        complete: () => {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+    });
+}
+
+// Skills visualization
+function initializeSkills() {
+    initializeSkillBars();
+    initializeSkillsChart();
+}
+
+function initializeSkillBars() {
+    const skillBars = document.querySelectorAll('.skill-progress');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const width = entry.target.getAttribute('data-width');
+                anime({
+                    targets: entry.target,
+                    width: `${width}%`,
+                    duration: 1000,
+                    delay: 200,
+                    easing: 'easeOutCubic'
+                });
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    skillBars.forEach(bar => observer.observe(bar));
+}
+
+function initializeSkillsChart() {
+    const chartElement = document.getElementById('skills-chart');
+    if (!chartElement) return;
+    
+    skillsChart = echarts.init(chartElement);
+    
+    const option = {
+        tooltip: {},
+        radar: {
+            indicator: [
+                { name: 'Machine Learning', max: 100 },
+                { name: 'Computer Vision', max: 100 },
+                { name: 'NLP', max: 100 },
+                { name: 'Data Analysis', max: 100 },
+                { name: 'Data Engineering', max: 100 },
+                { name: 'Business Intelligence', max: 100 }
+            ],
+            radius: '70%',
+            axisLine: {
+                lineStyle: {
+                    color: '#7A8471'
+                }
+            },
+            splitLine: {
+                lineStyle: {
+                    color: '#8B9DC3'
+                }
+            }
+        },
+        series: [{
+            name: 'Skills',
+            type: 'radar',
+            data: [{
+                value: [90, 85, 80, 95, 75, 85],
+                name: 'Current Level',
+                areaStyle: {
+                    color: 'rgba(122, 132, 113, 0.3)'
+                },
+                lineStyle: {
+                    color: '#7A8471'
+                },
+                itemStyle: {
+                    color: '#8B9DC3'
+                }
+            }]
+        }]
+    };
+    
+    skillsChart.setOption(option);
+    
+    // Responsive chart
+    window.addEventListener('resize', () => {
+        skillsChart.resize();
+    });
+}
+
+// GitHub integration
+async function initializeGitHubIntegration() {
+    try {
+        // Mock GitHub data for demonstration
+        const mockGitHubData = {
+            public_repos: 12,
+            followers: 25,
+            following: 15,
+            languages: {
+                'Jupyter Notebook': 65,
+                'Python': 25,
+                'R': 5,
+                'JavaScript': 3,
+                'HTML': 2
+            }
+        };
+        
+        displayGitHubStats(mockGitHubData);
+        initializeLanguageChart(mockGitHubData.languages);
+        
+    } catch (error) {
+        console.error('Error loading GitHub data:', error);
+        // Show fallback content
+        document.getElementById('github-stats').innerHTML = `
+            <div class="text-center text-gray-500">
+                <p>GitHub data temporarily unavailable</p>
+                <a href="https://github.com/AnastasiiaMokhonko234301" target="_blank" class="text-sage hover:underline">
+                    View Profile on GitHub
+                </a>
+            </div>
+        `;
+    }
+}
+
+function displayGitHubStats(data) {
+    const statsContainer = document.getElementById('github-stats');
+    
+    statsContainer.innerHTML = `
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="text-center p-6 bg-white rounded-lg shadow-lg">
+                <div class="text-3xl font-bold text-sage mb-2">${data.public_repos}</div>
+                <div class="text-gray-600">Public Repositories</div>
+            </div>
+            <div class="text-center p-6 bg-white rounded-lg shadow-lg">
+                <div class="text-3xl font-bold text-bluegray mb-2">${data.followers}</div>
+                <div class="text-gray-600">Followers</div>
+            </div>
+            <div class="text-center p-6 bg-white rounded-lg shadow-lg">
+                <div class="text-3xl font-bold text-terracotta mb-2">${data.following}</div>
+                <div class="text-gray-600">Following</div>
+            </div>
+        </div>
+        <div class="mt-8 text-center">
+            <a href="https://github.com/AnastasiiaMokhonko234301" target="_blank" class="inline-flex items-center space-x-2 bg-charcoal text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-all duration-300">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                <span>View Full Profile</span>
+            </a>
+        </div>
+    `;
+}
+
+function initializeLanguageChart(languages) {
+    const chartElement = document.getElementById('language-chart');
+    if (!chartElement) return;
+    
+    languageChart = echarts.init(chartElement);
+    
+    const data = Object.entries(languages).map(([name, value]) => ({
+        name,
+        value
+    }));
+    
+    const option = {
+        tooltip: {
+            trigger: 'item',
+            formatter: '{a} <br/>{b}: {c}% ({d}%)'
+        },
+        series: [{
+            name: 'Languages',
+            type: 'pie',
+            radius: ['40%', '70%'],
+            avoidLabelOverlap: false,
+            itemStyle: {
+                borderRadius: 10,
+                borderColor: '#fff',
+                borderWidth: 2
+            },
+            label: {
+                show: false,
+                position: 'center'
+            },
+            emphasis: {
+                label: {
+                    show: true,
+                    fontSize: '18',
+                    fontWeight: 'bold'
+                }
+            },
+            labelLine: {
+                show: false
+            },
+            data: data,
+            color: ['#7A8471', '#8B9DC3', '#C4A484', '#A8A8A8', '#2C2C2C']
+        }]
+    };
+    
+    languageChart.setOption(option);
+    
+    // Responsive chart
+    window.addEventListener('resize', () => {
+        languageChart.resize();
+    });
+}
+
+// Contact form handling
+function initializeContactForm() {
+    const contactForm = document.getElementById('contact-form');
+    
+    contactForm.addEventListener('submit', handleContactSubmit);
+}
+
+async function handleContactSubmit(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
+    
+    // Show loading state
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+    
+    try {
+        // Simulate form submission (replace with actual EmailJS integration)
+        await simulateFormSubmission(data);
+        
+        // Show success message
+        showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
+        e.target.reset();
+        
+    } catch (error) {
+        console.error('Error sending message:', error);
+        showNotification('Failed to send message. Please try again or contact me directly.', 'error');
+    } finally {
+        // Reset button state
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+    }
+}
+
+async function simulateFormSubmission(data) {
+    // Simulate API delay
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            // Simulate 90% success rate
+            if (Math.random() > 0.1) {
+                resolve(data);
+            } else {
+                reject(new Error('Simulated error'));
+            }
+        }, 2000);
+    });
+}
+
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `fixed top-20 right-4 z-50 p-4 rounded-lg shadow-lg max-w-sm transform translate-x-full transition-transform duration-300 ${
+        type === 'success' ? 'bg-green-500 text-white' : 
+        type === 'error' ? 'bg-red-500 text-white' : 
+        'bg-blue-500 text-white'
+    }`;
+    
+    notification.innerHTML = `
+        <div class="flex items-center space-x-2">
+            <span>${message}</span>
+            <button onclick="this.parentElement.parentElement.remove()" class="ml-2 text-white hover:text-gray-200">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Animate in
+    setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+    }, 100);
+    
+    // Auto remove after 5 seconds
+    setTimeout(() => {
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => notification.remove(), 300);
+    }, 5000);
+}
+
+// Scroll reveal animations
+function initializeScrollReveal() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('.scroll-reveal').forEach(el => {
+        observer.observe(el);
+    });
+}
+
+// P5.js background animation
+function initializeP5Background() {
+    new p5((p) => {
+        let particles = [];
+        let numParticles = 50;
+        
+        p.setup = function() {
+            let canvas = p.createCanvas(p.windowWidth, p.windowHeight);
+            canvas.id('p5-canvas');
+            
+            // Initialize particles
+            for (let i = 0; i < numParticles; i++) {
+                particles.push({
+                    x: p.random(p.width),
+                    y: p.random(p.height),
+                    vx: p.random(-0.5, 0.5),
+                    vy: p.random(-0.5, 0.5),
+                    size: p.random(2, 6)
+                });
+            }
+        };
+        
+        p.draw = function() {
+            p.clear();
+            
+            // Update and draw particles
+            for (let i = 0; i < particles.length; i++) {
+                let particle = particles[i];
+                
+                // Update position
+                particle.x += particle.vx;
+                particle.y += particle.vy;
+                
+                // Wrap around edges
+                if (particle.x < 0) particle.x = p.width;
+                if (particle.x > p.width) particle.x = 0;
+                if (particle.y < 0) particle.y = p.height;
+                if (particle.y > p.height) particle.y = 0;
+                
+                // Draw particle
+                p.fill(122, 132, 113, 50); // Sage color with transparency
+                p.noStroke();
+                p.ellipse(particle.x, particle.y, particle.size);
+                
+                // Draw connections
+                for (let j = i + 1; j < particles.length; j++) {
+                    let other = particles[j];
+                    let distance = p.dist(particle.x, particle.y, other.x, other.y);
+                    
+                    if (distance < 100) {
+                        p.stroke(139, 157, 195, 30); // Blue-gray with transparency
+                        p.strokeWeight(1);
+                        p.line(particle.x, particle.y, other.x, other.y);
+                    }
+                }
+            }
+        };
+        
+        p.windowResized = function() {
+            p.resizeCanvas(p.windowWidth, p.windowHeight);
+        };
+    });
+}
+
+// Utility functions
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Handle window resize
+window.addEventListener('resize', debounce(() => {
+    if (skillsChart) skillsChart.resize();
+    if (languageChart) languageChart.resize();
+}, 250));
+
+// Handle escape key for modal
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeModal();
+    }
+});
+
+console.log('Portfolio JavaScript loaded successfully');
