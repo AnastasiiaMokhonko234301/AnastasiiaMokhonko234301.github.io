@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Certificates - Anastasiia Mokhonko</title>
+    <meta name="description" content="Professional certificates and qualifications in Data Science, Business Intelligence, Machine Learning, and Technical Skills">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        sage: '#7A8471',
+                        cream: '#F5F3F0',
+                        terracotta: '#C4A484',
+                        bluegray: '#8B9DC3'
+                    },
+                    fontFamily: {
+                        'display': ['Inter', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(245,243,240,0.95) 0%, rgba(250,250,250,0.95) 100%), url('resources/certificates-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .certificate-card {
+            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+        
+        .certificate-card:hover {
+            transform: translateY(-12px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+        
+        .filter-btn {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .filter-btn.active {
+            background: linear-gradient(135deg, #7A8471, #8B9DC3);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .filter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #7A8471, #8B9DC3, #C4A484);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .modal-backdrop {
+            backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .skill-progress {
+            height: 8px;
+            background: linear-gradient(90deg, #7A8471, #8B9DC3);
+            border-radius: 4px;
+            transition: width 1.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+        
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .certificate-badge {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .certificate-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+        
+        .certificate-badge:hover::before {
+            left: 100%;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: linear-gradient(135deg, #7A8471, #8B9DC3);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #7A8471;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 1.5rem;
+            width: 2px;
+            height: calc(100% - 1rem);
+            background: linear-gradient(180deg, #7A8471, transparent);
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        #p5-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="font-body bg-gray-50 text-charcoal">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold gradient-text">Anastasiia Mokhonko</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="nav-link text-charcoal hover:text-sage transition-colors duration-300">Home</a>
+                        <a href="index.html#projects" class="nav-link text-charcoal hover:text-sage transition-colors duration-300">Projects</a>
+                        <a href="index.html#skills" class="nav-link text-charcoal hover:text-sage transition-colors duration-300">Skills</a>
+                        <a href="certificates.html" class="nav-link text-sage font-medium">Certificates</a>
+                        <a href="about.html" class="nav-link text-charcoal hover:text-sage transition-colors duration-300">About</a>
+                        <a href="index.html#contact" class="nav-link text-charcoal hover:text-sage transition-colors duration-300">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-charcoal hover:text-sage">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden glass-effect">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-charcoal hover:text-sage">Home</a>
+                <a href="index.html#projects" class="block px-3 py-2 text-charcoal hover:text-sage">Projects</a>
+                <a href="index.html#skills" class="block px-3 py-2 text-charcoal hover:text-sage">Skills</a>
+                <a href="certificates.html" class="block px-3 py-2 text-sage font-medium">Certificates</a>
+                <a href="about.html" class="block px-3 py-2 text-charcoal hover:text-sage">About</a>
+                <a href="index.html#contact" class="block px-3 py-2 text-charcoal hover:text-sage">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="floating-element mb-8">
+                <div class="w-24 h-24 mx-auto bg-gradient-to-br from-sage to-bluegray rounded-full flex items-center justify-center shadow-2xl">
+                    <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                    </svg>
+                </div>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                <span class="gradient-text">Professional Certificates</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                Comprehensive learning journey across Data Science, Business Intelligence, Machine Learning, and Professional Development
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button onclick="scrollToSection('certificates')" class="bg-sage text-white px-8 py-3 rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    Explore Certificates
+                </button>
+                <button onclick="scrollToSection('skills-dashboard')" class="border-2 border-sage text-sage px-8 py-3 rounded-full hover:bg-sage hover:text-white transition-all duration-300 transform hover:scale-105">
+                    View Skills Dashboard
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Dashboard Section -->
+    <section id="skills-dashboard" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Skills Mastery Dashboard</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Interactive visualization of technical competencies gained through professional certification programs
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Skills Radar Chart -->
+                <div class="scroll-reveal">
+                    <h3 class="text-2xl font-bold mb-8 text-center">Technical Expertise Areas</h3>
+                    <div id="skills-radar-chart" class="w-full h-96"></div>
+                </div>
+
+                <!-- Skills Progress Bars -->
+                <div class="scroll-reveal">
+                    <h3 class="text-2xl font-bold mb-8 text-center">Core Competencies</h3>
+                    <div class="space-y-6">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Data Analysis & Visualization</span>
+                                <span class="text-sage">92%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="skill-progress" data-width="92"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Business Intelligence</span>
+                                <span class="text-sage">88%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="skill-progress" data-width="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Machine Learning</span>
+                                <span class="text-sage">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Data Engineering</span>
+                                <span class="text-sage">82%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="skill-progress" data-width="82"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Statistical Analysis</span>
+                                <span class="text-sage">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Programming & Development</span>
+                                <span class="text-sage">94%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="skill-progress" data-width="94"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievement Statistics -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 scroll-reveal">
+                <div class="text-center">
+                    <div class="text-4xl font-bold gradient-text mb-2" data-count="24">0</div>
+                    <div class="text-gray-600">Total Certificates</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold gradient-text mb-2" data-count="8">0</div>
+                    <div class="text-gray-600">Skill Areas</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold gradient-text mb-2" data-count="156">0</div>
+                    <div class="text-gray-600">Learning Hours</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold gradient-text mb-2" data-count="12">0</div>
+                    <div class="text-gray-600">Months</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Gallery Section -->
+    <section id="certificates" class="py-20 bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Certificate Gallery</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Comprehensive collection of professional certifications demonstrating expertise across data science and technology domains
+                </p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12 scroll-reveal">
+                <button class="filter-btn active px-6 py-3 rounded-full border-2 border-sage text-sage font-medium" data-filter="all">
+                    All Certificates
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full border-2 border-sage text-sage font-medium" data-filter="business-intelligence">
+                    Business Intelligence
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full border-2 border-sage text-sage font-medium" data-filter="data-science">
+                    Data Science
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full border-2 border-sage text-sage font-medium" data-filter="data-engineering">
+                    Data Engineering
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full border-2 border-sage text-sage font-medium" data-filter="machine-learning">
+                    Machine Learning
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full border-2 border-sage text-sage font-medium" data-filter="technical-skills">
+                    Technical Skills
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full border-2 border-sage text-sage font-medium" data-filter="professional-development">
+                    Professional Development
+                </button>
+            </div>
+
+            <!-- Certificates Grid -->
+            <div id="certificates-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Certificate cards will be dynamically generated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievement Timeline Section -->
+    <section id="timeline" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Learning Journey</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Chronological progression of professional development and skill acquisition
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-8" id="timeline-container">
+                    <!-- Timeline items will be dynamically generated -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificate Detail Modal -->
+    <div id="certificate-modal" class="fixed inset-0 z-50 hidden">
+        <div class="modal-backdrop absolute inset-0" onclick="closeCertificateModal()"></div>
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative z-10">
+                <button onclick="closeCertificateModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 z-20">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                <div id="certificate-modal-content" class="p-8">
+                    <!-- Modal content will be dynamically populated -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400">
+                © 2025 Anastasiia Mokhonko. All rights reserved. Built with passion for continuous learning and professional development.
+            </p>
+        </div>
+    </footer>
+
+    <script src="certificates.js"></script>
+</body>
+</html>
