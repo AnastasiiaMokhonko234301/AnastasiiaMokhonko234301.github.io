@@ -169,26 +169,35 @@ function initializeNavigation() {
     const navLinks = document.querySelectorAll('.nav-link');
 
     // Mobile menu toggle
-    mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-    });
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
 
-    // Smooth scrolling for navigation links
+    // Smooth scrolling for INTERNAL navigation links only
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
+            const href = link.getAttribute('href');
             
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+            // Only handle same-page hash links
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const targetElement = document.querySelector(href);
                 
-                // Close mobile menu if open
-                mobileMenu.classList.add('hidden');
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (mobileMenu) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
             }
+            // Let external links (certificates.html, about.html) work normally
         });
     });
 
@@ -211,7 +220,8 @@ function updateActiveNavigation() {
 
     navLinks.forEach(link => {
         link.classList.remove('text-sage');
-        if (link.getAttribute('href') === `#${current}`) {
+        const href = link.getAttribute('href');
+        if (href === `#${current}` || href === `index.html#${current}`) {
             link.classList.add('text-sage');
         }
     });
@@ -220,32 +230,36 @@ function updateActiveNavigation() {
 // Hero section animations
 function initializeHeroAnimations() {
     // Typewriter effect for name
-    new Typed('#typed-name', {
-        strings: ['Anastasiia Mokhonko'],
-        typeSpeed: 100,
-        backSpeed: 50,
-        backDelay: 2000,
-        loop: false,
-        showCursor: true,
-        cursorChar: '|'
-    });
+    if (document.getElementById('typed-name')) {
+        new Typed('#typed-name', {
+            strings: ['Anastasiia Mokhonko'],
+            typeSpeed: 100,
+            backSpeed: 50,
+            backDelay: 2000,
+            loop: false,
+            showCursor: true,
+            cursorChar: '|'
+        });
+    }
 
     // Typewriter effect for role
-    new Typed('#typed-role', {
-        strings: [
-            'Data Science & AI Student',
-            'Machine Learning Engineer',
-            'Computer Vision Specialist',
-            'NLP Practitioner',
-            'Real-World Problem Solver'
-        ],
-        typeSpeed: 80,
-        backSpeed: 40,
-        backDelay: 2000,
-        loop: true,
-        showCursor: true,
-        cursorChar: '|'
-    });
+    if (document.getElementById('typed-role')) {
+        new Typed('#typed-role', {
+            strings: [
+                'Data Science & AI Student',
+                'Machine Learning Engineer',
+                'Computer Vision Specialist',
+                'NLP Practitioner',
+                'Real-World Problem Solver'
+            ],
+            typeSpeed: 80,
+            backSpeed: 40,
+            backDelay: 2000,
+            loop: true,
+            showCursor: true,
+            cursorChar: '|'
+        });
+    }
 }
 
 // Project filtering system
@@ -307,6 +321,8 @@ function filterProjects(filter) {
 // Project cards initialization
 function initializeProjects() {
     const projectsGrid = document.getElementById('projects-grid');
+    if (!projectsGrid) return;
+    
     projectsGrid.innerHTML = '';
     
     projectData.forEach((project, index) => {
@@ -364,6 +380,8 @@ function createProjectCard(project, index) {
 function openProjectModal(project) {
     const modal = document.getElementById('project-modal');
     const modalContent = document.getElementById('modal-content');
+    
+    if (!modal || !modalContent) return;
     
     modalContent.innerHTML = `
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -433,6 +451,7 @@ function openProjectModal(project) {
 
 function closeModal() {
     const modal = document.getElementById('project-modal');
+    if (!modal) return;
     
     anime({
         targets: modal.querySelector('.bg-white'),
@@ -526,7 +545,9 @@ function initializeSkillsChart() {
     
     // Responsive chart
     window.addEventListener('resize', () => {
-        skillsChart.resize();
+        if (skillsChart) {
+            skillsChart.resize();
+        }
     });
 }
 
@@ -552,20 +573,23 @@ async function initializeGitHubIntegration() {
         
     } catch (error) {
         console.error('Error loading GitHub data:', error);
-        // Show fallback content
-        document.getElementById('github-stats').innerHTML = `
-            <div class="text-center text-gray-500">
-                <p>GitHub data temporarily unavailable</p>
-                <a href="https://github.com/AnastasiiaMokhonko234301" target="_blank" class="text-sage hover:underline">
-                    View Profile on GitHub
-                </a>
-            </div>
-        `;
+        const statsElement = document.getElementById('github-stats');
+        if (statsElement) {
+            statsElement.innerHTML = `
+                <div class="text-center text-gray-500">
+                    <p>GitHub data temporarily unavailable</p>
+                    <a href="https://github.com/AnastasiiaMokhonko234301" target="_blank" class="text-sage hover:underline">
+                        View Profile on GitHub
+                    </a>
+                </div>
+            `;
+        }
     }
 }
 
 function displayGitHubStats(data) {
     const statsContainer = document.getElementById('github-stats');
+    if (!statsContainer) return;
     
     statsContainer.innerHTML = `
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -642,13 +666,16 @@ function initializeLanguageChart(languages) {
     
     // Responsive chart
     window.addEventListener('resize', () => {
-        languageChart.resize();
+        if (languageChart) {
+            languageChart.resize();
+        }
     });
 }
 
 // Contact form handling
 function initializeContactForm() {
     const contactForm = document.getElementById('contact-form');
+    if (!contactForm) return;
     
     contactForm.addEventListener('submit', handleContactSubmit);
 }
@@ -790,7 +817,7 @@ function initializeP5Background() {
                 if (particle.y > p.height) particle.y = 0;
                 
                 // Draw particle
-                p.fill(122, 132, 113, 50); // Sage color with transparency
+                p.fill(122, 132, 113, 50);
                 p.noStroke();
                 p.ellipse(particle.x, particle.y, particle.size);
                 
@@ -800,7 +827,7 @@ function initializeP5Background() {
                     let distance = p.dist(particle.x, particle.y, other.x, other.y);
                     
                     if (distance < 100) {
-                        p.stroke(139, 157, 195, 30); // Blue-gray with transparency
+                        p.stroke(139, 157, 195, 30);
                         p.strokeWeight(1);
                         p.line(particle.x, particle.y, other.x, other.y);
                     }
