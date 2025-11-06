@@ -14,7 +14,7 @@ const certificateData = [
         difficulty: "Beginner",
         description: "Comprehensive introduction to Power BI Desktop, covering data connections, basic transformations, and report creation.",
         skills: ["Power BI Desktop", "Data Connections", "Basic DAX", "Report Design"],
-        image: "https://kimi-web-img.moonshot.cn/img/cdn.corporatefinanceinstitute.com/2a12ad7f448bde0a7701f4d3d45497e913341bb2.png",
+        image: "resources/certificates/Business_Intelligence/Introduction to Power BI.jpg",
         outcomes: [
             "Mastered Power BI Desktop interface and navigation",
             "Learned to connect to various data sources",
@@ -33,7 +33,7 @@ const certificateData = [
         difficulty: "Intermediate",
         description: "Advanced data preparation techniques using Power Query Editor for data cleaning and transformation.",
         skills: ["Power Query", "Data Cleaning", "Data Transformation", "M Language"],
-        image: "https://kimi-web-img.moonshot.cn/img/cdn.corporatefinanceinstitute.com/2a12ad7f448bde0a7701f4d3d45497e913341bb2.png",
+        image: "resources/certificates/Business_Intelligence/Data Preparation in Power BI.jpg",
         outcomes: [
             "Advanced data cleaning and transformation skills",
             "Mastery of Power Query Editor",
@@ -52,7 +52,7 @@ const certificateData = [
         difficulty: "Intermediate",
         description: "Creating effective visualizations and understanding visualization best practices in Power BI.",
         skills: ["Chart Selection", "Visual Design", "Interactive Elements", "Formatting"],
-        image: "https://kimi-web-img.moonshot.cn/img/cdn.corporatefinanceinstitute.com/2a12ad7f448bde0a7701f4d3d45497e913341bb2.png",
+        image: "resources/certificates/Business_Intelligence/Data Visualization in Power BI.jpg",
         outcomes: [
             "Created compelling and informative visualizations",
             "Mastered chart selection for different data types",
@@ -71,7 +71,7 @@ const certificateData = [
         difficulty: "Intermediate",
         description: "Exploratory data analysis techniques using Power BI for data discovery and insight generation.",
         skills: ["EDA Techniques", "Statistical Analysis", "Pattern Recognition", "Insight Generation"],
-        image: "https://kimi-web-img.moonshot.cn/img/cdn.corporatefinanceinstitute.com/2a12ad7f448bde0a7701f4d3d45497e913341bb2.png",
+        image: "resources/certificates/Business_Intelligence/Exploratory Data Analysis in Power BI.jpg",
         outcomes: [
             "Conducted comprehensive exploratory data analysis",
             "Identified patterns and anomalies in data",
@@ -90,7 +90,7 @@ const certificateData = [
         difficulty: "Advanced",
         description: "Advanced data modeling concepts including relationships, calculated columns, and measures.",
         skills: ["Data Modeling", "DAX Functions", "Relationships", "Calculated Columns"],
-        image: "https://kimi-web-img.moonshot.cn/img/cdn.corporatefinanceinstitute.com/2a12ad7f448bde0a7701f4d3d45497e913341bb2.png",
+        image: "resources/certificates/Business_Intelligence/Data Modeling in Power BI.jpg",
         outcomes: [
             "Built complex data models",
             "Mastered advanced DAX functions",
@@ -109,7 +109,7 @@ const certificateData = [
         difficulty: "Advanced",
         description: "Real-world case study applying Power BI skills to analyze customer churn patterns and predict retention.",
         skills: ["Business Analysis", "Churn Analysis", "Predictive Modeling", "Case Study Methodology"],
-        image: "https://kimi-web-img.moonshot.cn/img/cdn.corporatefinanceinstitute.com/2a12ad7f448bde0a7701f4d3d45497e913341bb2.png",
+        image: "resources/certificates/Business_Intelligence/Case Study Analyzing Customer Churn in Power BI.jpg",
         outcomes: [
             "Applied skills to real business problem",
             "Built predictive churn model",
@@ -128,7 +128,7 @@ const certificateData = [
         difficulty: "Intermediate",
         description: "Best practices for report design, layout optimization, and creating professional business reports.",
         skills: ["Report Design", "Layout Optimization", "Professional Presentation", "User Experience"],
-        image: "https://kimi-web-img.moonshot.cn/img/cdn.corporatefinanceinstitute.com/2a12ad7f448bde0a7701f4d3d45497e913341bb2.png",
+        image: "resources/certificates/Business_Intelligence/Report Design in Power BI.jpg",
         outcomes: [
             "Designed professional business reports",
             "Applied UX principles to dashboard design",
@@ -147,7 +147,7 @@ const certificateData = [
         difficulty: "Advanced",
         description: "User-centered design principles for creating intuitive and effective Power BI solutions.",
         skills: ["User Experience Design", "Intuitive Navigation", "User Testing", "Design Thinking"],
-        image: "https://kimi-web-img.moonshot.cn/img/cdn.corporatefinanceinstitute.com/2a12ad7f448bde0a7701f4d3d45497e913341bb2.png",
+        image: "resources/certificates/Business_Intelligence/User-Oriented Design in Power BI.jpg",
         outcomes: [
             "Applied user-centered design methodology",
             "Created intuitive navigation systems",
@@ -168,7 +168,7 @@ const certificateData = [
         difficulty: "Beginner",
         description: "Foundational SQL skills for data manipulation and analysis, covering basic queries and database operations.",
         skills: ["SQL Queries", "Database Operations", "Data Filtering", "Join Operations"],
-        image: "https://kimi-web-img.moonshot.cn/img/www.w3schools.com/1c01ed75480b7732ab0a5463a1fc29018bd3680d.jpg",
+        image: "resources/certificates/Data_Science/Introduction to SQL.jpg",
         outcomes: [
             "Mastered basic SQL syntax and queries",
             "Learned to filter and sort data effectively",
@@ -187,7 +187,7 @@ const certificateData = [
         difficulty: "Intermediate",
         description: "Comprehensive introduction to time series analysis using Python, including forecasting and trend analysis.",
         skills: ["Time Series Analysis", "Python", "Forecasting", "Trend Analysis"],
-        image: "https://kimi-web-img.moonshot.cn/img/priyadogra.com/3f578b23c1a4eb1a5768982848e9be3df0d60dac.jpg",
+        image: "resources/certificates/Data_Science/Time Series Analysis in Python.jpg",
         outcomes: [
             "Analyzed time series data patterns",
             "Built forecasting models",
@@ -206,7 +206,7 @@ const certificateData = [
         difficulty: "Intermediate",
         description: "Advanced techniques for handling, cleaning, and transforming time series data using pandas and other Python libraries.",
         skills: ["Pandas", "Data Cleaning", "Time Series Transformation", "Python Programming"],
-        image: "https://kimi-web-img.moonshot.cn/img/priyadogra.com/3f578b23c1a4eb1a5768982848e9be3df0d60dac.jpg",
+        image: "resources/certificates/Data_Science/Manipulating Time Series Data in Python.jpg",
         outcomes: [
             "Mastered time series data manipulation",
             "Learned advanced pandas techniques",
@@ -225,7 +225,7 @@ const certificateData = [
         difficulty: "Intermediate",
         description: "Creating effective visualizations for time series data using matplotlib, seaborn, and plotly.",
         skills: ["Data Visualization", "Matplotlib", "Seaborn", "Plotly"],
-        image: "https://kimi-web-img.moonshot.cn/img/priyadogra.com/3f578b23c1a4eb1a5768982848e9be3df0d60dac.jpg",
+        image: "resources/certificates/Data_Science/Visualizing Time Series Data in Python.jpg",
         outcomes: [
             "Created compelling time series visualizations",
             "Used multiple visualization libraries",
@@ -246,7 +246,7 @@ const certificateData = [
         difficulty: "Intermediate",
         description: "Comprehensive pandas training for data manipulation, analysis, and preparation tasks.",
         skills: ["Pandas", "Data Manipulation", "Data Analysis", "DataFrame Operations"],
-        image: "https://kimi-web-img.moonshot.cn/img/priyadogra.com/3f578b23c1a4eb1a5768982848e9be3df0d60dac.jpg",
+        image: "resources/certificates/Data_Engineering/Data Manipulation with pandas.jpg",
         outcomes: [
             "Mastered pandas DataFrame operations",
             "Performed complex data manipulations",
@@ -265,7 +265,7 @@ const certificateData = [
         difficulty: "Beginner",
         description: "Essential skills for importing data from various sources including CSV, Excel, databases, and web APIs.",
         skills: ["Data Import", "File I/O", "API Integration", "Data Sources"],
-        image: "https://kimi-web-img.moonshot.cn/img/priyadogra.com/3f578b23c1a4eb1a5768982848e9be3df0d60dac.jpg",
+        image: "resources/certificates/Data_Engineering/Introduction to Importing Data in Python.jpg",
         outcomes: [
             "Imported data from multiple sources",
             "Handled various file formats",
@@ -286,7 +286,7 @@ const certificateData = [
         difficulty: "Beginner",
         description: "Foundational concepts of machine learning including supervised and unsupervised learning techniques.",
         skills: ["Machine Learning Basics", "Supervised Learning", "Unsupervised Learning", "Model Evaluation"],
-        image: "https://kimi-web-img.moonshot.cn/img/images.template.net/e86dbda870caf87d2b86525cb929101777ed6054.jpg",
+        image: "resources/certificates/Machine_Learning/Understanding Machine Learning.jpg",
         outcomes: [
             "Understood core ML concepts and terminology",
             "Learned about different learning types",
@@ -305,7 +305,7 @@ const certificateData = [
         difficulty: "Advanced",
         description: "Advanced techniques for reducing data dimensionality using PCA, t-SNE, and other methods.",
         skills: ["PCA", "t-SNE", "Dimensionality Reduction", "Feature Engineering"],
-        image: "https://kimi-web-img.moonshot.cn/img/images.template.net/e86dbda870caf87d2b86525cb929101777ed6054.jpg",
+        image: "resources/certificates/Machine_Learning/Dimensionality Reduction in Python.jpg",
         outcomes: [
             "Applied PCA for dimensionality reduction",
             "Used t-SNE for visualization",
@@ -314,19 +314,19 @@ const certificateData = [
         ]
     },
 
-    // Technical Skills
+    // Technical Skills (Software Engineering)
     {
         id: 17,
         title: "Unit Testing for Data Science in Python",
         category: "technical-skills",
-        track: "Technical Skills",
+        track: "Technical Skills - Software Engineering",
         provider: "DataCamp",
         completionDate: "2024-09-01",
         duration: "4 hours",
         difficulty: "Intermediate",
         description: "Best practices for testing data science code using pytest and other testing frameworks.",
         skills: ["Unit Testing", "Pytest", "Code Quality", "Test-Driven Development"],
-        image: "https://kimi-web-img.moonshot.cn/img/www.w3schools.com/69f567feca9d37ac570eca5dc81c547333bdf053.jpg",
+        image: "resources/certificates/Software_Engineering/Unit Testing for Data Science in Python.jpg",
         outcomes: [
             "Implemented comprehensive test suites",
             "Used pytest for data science projects",
@@ -334,18 +334,20 @@ const certificateData = [
             "Adopted test-driven development practices"
         ]
     },
+
+    // Data Visualization
     {
         id: 18,
         title: "Introduction to Data Visualization with Matplotlib",
         category: "technical-skills",
-        track: "Technical Skills",
+        track: "Technical Skills - Data Visualization",
         provider: "DataCamp",
         completionDate: "2024-07-10",
         duration: "4 hours",
         difficulty: "Beginner",
         description: "Foundational data visualization techniques using matplotlib for creating informative charts and plots.",
         skills: ["Matplotlib", "Plot Creation", "Chart Customization", "Visual Design"],
-        image: "https://kimi-web-img.moonshot.cn/img/www.w3schools.com/69f567feca9d37ac570eca5dc81c547333bdf053.jpg",
+        image: "resources/certificates/Data_Visualization/Introduction to Data Visualization with Matplotlib.jpg",
         outcomes: [
             "Created various types of data visualizations",
             "Customized plots for better communication",
@@ -354,7 +356,7 @@ const certificateData = [
         ]
     },
 
-    // Research & Professional Development
+    // Research
     {
         id: 19,
         title: "Academic Research Foundations: Quantitative",
@@ -366,7 +368,7 @@ const certificateData = [
         difficulty: "Advanced",
         description: "Comprehensive training in quantitative research methodologies and academic writing standards.",
         skills: ["Research Methodology", "Academic Writing", "Statistical Analysis", "Critical Thinking"],
-        image: "https://kimi-web-img.moonshot.cn/img/www.successcertificates.com/bccbb343d4d1164c6094072ac71ba8a478b09dad.jpg",
+        image: "resources/certificates/Research/Academic Research Foundations Quantitative.jpg",
         outcomes: [
             "Mastered quantitative research methods",
             "Improved academic writing skills",
@@ -374,6 +376,8 @@ const certificateData = [
             "Developed research project management skills"
         ]
     },
+
+    // Professional Development
     {
         id: 20,
         title: "Professional Skills: Resume Writing, Mental Health, Stress Management",
@@ -385,7 +389,7 @@ const certificateData = [
         difficulty: "Beginner",
         description: "Essential professional skills including resume optimization, mental health awareness, and stress management techniques.",
         skills: ["Resume Writing", "Mental Health Awareness", "Stress Management", "Professional Development"],
-        image: "https://kimi-web-img.moonshot.cn/img/interaction-training.com/893ebb600d02695c3b6a8dcc8d519760ec0ca64f.png",
+        image: "resources/certificates/Professional_Development/Professional Skills Resume Writing, Mental Health, Stress Management.jpg",
         outcomes: [
             "Created compelling professional resume",
             "Developed mental health awareness",
@@ -413,10 +417,10 @@ const timelineData = [
     },
     {
         date: "2024-08-15",
-        title: "SQL Proficiency Achieved",
-        description: "Mastered database querying and data retrieval skills",
+        title: "SQL & Machine Learning Proficiency",
+        description: "Mastered database querying and foundational machine learning concepts",
         category: "technical",
-        certificates: ["Introduction to SQL"]
+        certificates: ["Introduction to SQL", "Understanding Machine Learning"]
     },
     {
         date: "2024-09-15",
@@ -430,14 +434,14 @@ const timelineData = [
         title: "Business Intelligence Mastery",
         description: "Completed advanced Power BI certification track with case study experience",
         category: "milestone",
-        certificates: ["User-Oriented Design in Power BI"]
+        certificates: ["User-Oriented Design in Power BI", "Case Study: Analyzing Customer Churn in Power BI"]
     },
     {
         date: "2024-11-10",
         title: "Time Series Analysis Expertise",
-        description: "Achieved proficiency in time series analysis and forecasting",
+        description: "Achieved proficiency in time series analysis and forecasting techniques",
         category: "technical",
-        certificates: ["Visualizing Time Series Data in Python"]
+        certificates: ["Visualizing Time Series Data in Python", "Manipulating Time Series Data in Python"]
     }
 ];
 
@@ -626,6 +630,8 @@ function getDifficultyColor(difficulty) {
 
 function initSkillsRadarChart() {
     const chartDom = document.getElementById('skills-radar-chart');
+    if (!chartDom) return;
+    
     skillsRadarChart = echarts.init(chartDom);
 
     const option = {
@@ -695,7 +701,9 @@ function initSkillsRadarChart() {
 
     // Make chart responsive
     window.addEventListener('resize', function() {
-        skillsRadarChart.resize();
+        if (skillsRadarChart) {
+            skillsRadarChart.resize();
+        }
     });
 }
 
@@ -748,6 +756,7 @@ function initAchievementCounters() {
 
 function renderTimeline() {
     const container = document.getElementById('timeline-container');
+    if (!container) return;
     
     timelineData.forEach((item, index) => {
         const timelineItem = document.createElement('div');
@@ -951,9 +960,11 @@ function initMobileMenu() {
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     
-    mobileMenuBtn.addEventListener('click', function() {
-        mobileMenu.classList.toggle('hidden');
-    });
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
 }
 
 function scrollToSection(sectionId) {
@@ -994,3 +1005,5 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+console.log('Certificates page initialized successfully');
