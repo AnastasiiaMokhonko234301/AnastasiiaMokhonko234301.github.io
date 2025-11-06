@@ -18,7 +18,7 @@ const projectData = [
         technologies: ["Python", "OpenCV", "TensorFlow", "PyTorch", "ROS"],
         githubUrl: "https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/CV_RootSegmentation%26RoboticControl",
         client: "Research Institution",
-        duration: "3 months",
+        duration: "2 months",
         outcomes: [
             "Achieved 94% accuracy in root segmentation",
             "Reduced manual labor by 60%",
@@ -36,7 +36,7 @@ const projectData = [
         technologies: ["Python", "Scikit-learn", "XGBoost", "Pandas", "Matplotlib"],
         githubUrl: "https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/ML_GoalPrediction_NAC",
         client: "NAC Breda Football Club",
-        duration: "4 months",
+        duration: "2 months",
         outcomes: [
             "75% accuracy in match outcome prediction",
             "Identified key performance indicators",
@@ -54,7 +54,7 @@ const projectData = [
         technologies: ["Python", "NLTK", "SpaCy", "Transformers", "BERT"],
         githubUrl: "https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/NLP_ContentIntelligenceAgency",
         client: "Content Intelligence Agency",
-        duration: "5 months",
+        duration: "4 months",
         outcomes: [
             "Automated content categorization with 92% accuracy",
             "Reduced manual review time by 80%",
@@ -72,7 +72,7 @@ const projectData = [
         technologies: ["Python", "R", "Tableau", "SQL", "Power BI"],
         githubUrl: "https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/Human_Trafficking_Data_Analysis_(SDG16)",
         client: "NGO Partnership",
-        duration: "6 months",
+        duration: "2 months",
         outcomes: [
             "Identified trafficking hotspots and patterns",
             "Provided data-driven policy recommendations",
@@ -90,7 +90,7 @@ const projectData = [
         technologies: ["Python", "Apache Spark", "Kafka", "TensorFlow", "PostgreSQL"],
         githubUrl: "https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/ML_ANWB",
         client: "ANWB (Dutch Automobile Association)",
-        duration: "4 months",
+        duration: "2 months",
         outcomes: [
             "85% accuracy in traffic prediction",
             "Reduced travel time by 15%",
@@ -108,7 +108,7 @@ const projectData = [
         technologies: ["R", "Python", "SPSS", "Excel", "Power BI"],
         githubUrl: "https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/Policy_Research_for_SMEs",
         client: "Government Agency",
-        duration: "3 months",
+        duration: "2 months",
         outcomes: [
             "Comprehensive SME policy analysis",
             "Data-driven policy recommendations",
