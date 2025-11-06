@@ -28,7 +28,7 @@ const projectData = [
     },
     {
         id: 2,
-        title: "ML Goal Prediction for NAC Breda",
+        title: "Goal Prediction for NAC Breda",
         role: "ml-engineer",
         category: "data-scientist",
         image: "resources/project-covers/ml-sports.jpg",
@@ -46,7 +46,7 @@ const projectData = [
     },
     {
         id: 3,
-        title: "NLP Content Intelligence Agency",
+        title: "Content Intelligence Agency",
         role: "nlp",
         category: "data-scientist",
         image: "resources/project-covers/nlp-analysis.jpg",
@@ -82,7 +82,7 @@ const projectData = [
     },
     {
         id: 5,
-        title: "ML ANWB Traffic Prediction",
+        title: "ANWB Traffic Prediction",
         role: "ml-engineer",
         category: "data-engineer",
         image: "resources/project-covers/data-engineering.jpg",
