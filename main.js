@@ -17,8 +17,8 @@ const projectData = [
         description: "Advanced computer vision system for automated detection and classification of potato leaf diseases using deep learning.",
         technologies: ["Python", "OpenCV", "TensorFlow", "Keras", "CNN", "Image Processing"],
         githubUrl: "https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/CV_FarmersBuddy",
-        client: "Breda University of Applied Sciences",
-        duration: "2 months",
+        client: "NPEC (Netherlands Plant Eco-phenotyping Centre)",
+        duration: "4 months",
         outcomes: [
             "Achieved 96% accuracy in disease classification",
             "Identified 12 different potato leaf diseases",
@@ -37,7 +37,7 @@ const projectData = [
         technologies: ["Python", "OpenCV", "ROS", "PyTorch", "Image Segmentation", "Robotics"],
         githubUrl: "https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/CV_RootSegmentation%26RoboticControl",
         client: "NPEC (Netherlands Plant Eco-phenotyping Centre)",
-        duration: "2 months",
+        duration: "5 months",
         outcomes: [
             "Achieved 94% accuracy in root segmentation",
             "Integrated with robotic control systems",
@@ -48,7 +48,7 @@ const projectData = [
     },
     {
         id: 3,
-        title: "Goal Prediction for NAC Breda",
+        title: "ML Goal Prediction for NAC Breda",
         role: "ml-engineer",
         category: "data-scientist",
         image: "resources/project-covers/ml-sports.jpg",
@@ -56,7 +56,7 @@ const projectData = [
         technologies: ["Python", "Scikit-learn", "XGBoost", "Pandas", "Matplotlib"],
         githubUrl: "https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/ML_GoalPrediction_NAC",
         client: "NAC Breda Football Club",
-        duration: "2 months",
+        duration: "4 months",
         outcomes: [
             "75% accuracy in match outcome prediction",
             "Identified key performance indicators",
@@ -66,7 +66,7 @@ const projectData = [
     },
     {
         id: 4,
-        title: "Content Intelligence Agency",
+        title: "NLP Content Intelligence Agency",
         role: "nlp",
         category: "data-scientist",
         image: "resources/project-covers/nlp-analysis.jpg",
@@ -74,7 +74,7 @@ const projectData = [
         technologies: ["Python", "NLTK", "SpaCy", "Transformers", "BERT"],
         githubUrl: "https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/NLP_ContentIntelligenceAgency",
         client: "Content Intelligence Agency",
-        duration: "4 months",
+        duration: "5 months",
         outcomes: [
             "Automated content categorization with 92% accuracy",
             "Reduced manual review time by 80%",
@@ -91,8 +91,8 @@ const projectData = [
         description: "Data analysis project supporting UN SDG 16 with comprehensive trafficking pattern analysis.",
         technologies: ["Python", "R", "Tableau", "SQL", "Power BI"],
         githubUrl: "https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/Human_Trafficking_Data_Analysis_(SDG16)",
-        client: "Breda University of Applied Sciences",
-        duration: "2 months",
+        client: "NGO Partnership",
+        duration: "6 months",
         outcomes: [
             "Identified trafficking hotspots and patterns",
             "Provided data-driven policy recommendations",
@@ -102,7 +102,7 @@ const projectData = [
     },
     {
         id: 6,
-        title: "ANWB Traffic Prediction",
+        title: "ML ANWB Traffic Prediction",
         role: "ml-engineer",
         category: "data-engineer",
         image: "resources/project-covers/data-engineering.jpg",
@@ -110,7 +110,7 @@ const projectData = [
         technologies: ["Python", "Apache Spark", "Kafka", "TensorFlow", "PostgreSQL"],
         githubUrl: "https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/ML_ANWB",
         client: "ANWB (Dutch Automobile Association)",
-        duration: "2 months",
+        duration: "4 months",
         outcomes: [
             "85% accuracy in traffic prediction",
             "Reduced travel time by 15%",
@@ -127,8 +127,8 @@ const projectData = [
         description: "Data-driven policy research and analysis for small and medium enterprises.",
         technologies: ["R", "Python", "SPSS", "Excel", "Power BI"],
         githubUrl: "https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/Policy_Research_for_SMEs",
-        client: "Digiwerkplaats",
-        duration: "2 months",
+        client: "Government Agency",
+        duration: "3 months",
         outcomes: [
             "Comprehensive SME policy analysis",
             "Data-driven policy recommendations",
