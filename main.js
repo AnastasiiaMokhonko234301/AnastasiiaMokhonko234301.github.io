@@ -123,7 +123,7 @@ const projectData = [
         title: "Policy Research for SMEs",
         role: "data-analyst",
         category: "data-analyst",
-        image: "resources/project-covers/bi-dashboard.jpg",
+        image: "resources/project-covers/cybersecurity.jpg",
         description: "Data-driven policy research and analysis for small and medium enterprises.",
         technologies: ["R", "Python", "SPSS", "Excel", "Power BI"],
         githubUrl: "https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/Policy_Research_for_SMEs",
