@@ -10,24 +10,44 @@ let languageChart = null;
 const projectData = [
     {
         id: 1,
-        title: "Computer Vision for Root Segmentation",
+        title: "Potato Leaf Disease Classification",
         role: "computer-vision",
         category: "ml-engineer",
-        image: "resources/project-covers/cv-medical.jpg",
-        description: "Advanced computer vision system for automated root segmentation and robotic control in agricultural applications.",
-        technologies: ["Python", "OpenCV", "TensorFlow", "PyTorch", "ROS"],
-        githubUrl: "https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/CV_RootSegmentation%26RoboticControl",
-        client: "Research Institution",
+        image: "resources/project-covers/potato-disease.jpg",
+        description: "Advanced computer vision system for automated detection and classification of potato leaf diseases using deep learning.",
+        technologies: ["Python", "OpenCV", "TensorFlow", "Keras", "CNN", "Image Processing"],
+        githubUrl: "https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/CV_FarmersBuddy",
+        client: "Breda University of Applied Sciences",
         duration: "2 months",
         outcomes: [
-            "Achieved 94% accuracy in root segmentation",
-            "Reduced manual labor by 60%",
-            "Improved crop yield prediction accuracy"
+            "Achieved 96% accuracy in disease classification",
+            "Identified 12 different potato leaf diseases",
+            "Reduced diagnostic time by 85%",
+            "Enabled early intervention for crop protection"
         ],
-        detailedDescription: "This project involved developing a sophisticated computer vision pipeline for automated root segmentation in agricultural settings. The system integrates deep learning models with robotic control systems to enable precise agricultural automation."
+        detailedDescription: "Developed a sophisticated computer vision pipeline for automated potato leaf disease classification. The system uses convolutional neural networks to analyze plant images and identify various diseases including late blight, early blight, and bacterial infections. The solution provides farmers with real-time diagnostic capabilities to enable early intervention and protect crop yields."
     },
     {
         id: 2,
+        title: "Plant Root Segmentation & Robotic Control",
+        role: "computer-vision",
+        category: "data-engineer",
+        image: "resources/project-covers/root-robotic.jpg",
+        description: "Integrated system for automated plant root analysis and robotic control for precision agriculture applications.",
+        technologies: ["Python", "OpenCV", "ROS", "PyTorch", "Image Segmentation", "Robotics"],
+        githubUrl: "https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/CV_RootSegmentation%26RoboticControl",
+        client: "NPEC (Netherlands Plant Eco-phenotyping Centre)",
+        duration: "2 months",
+        outcomes: [
+            "Achieved 94% accuracy in root segmentation",
+            "Integrated with robotic control systems",
+            "Reduced manual labor by 60%",
+            "Improved crop yield prediction accuracy"
+        ],
+        detailedDescription: "This advanced project combines computer vision with robotics to create an automated plant root analysis system. The solution segments root structures from soil imagery and integrates with robotic control systems for automated plant handling and analysis. The system enables large-scale phenotyping studies and provides valuable insights into plant growth patterns and root development."
+    },
+    {
+        id: 3,
         title: "Goal Prediction for NAC Breda",
         role: "ml-engineer",
         category: "data-scientist",
@@ -45,7 +65,7 @@ const projectData = [
         detailedDescription: "Developed predictive models for football match outcomes using historical data, player statistics, and team performance metrics. The system provides actionable insights for coaching staff and team management."
     },
     {
-        id: 3,
+        id: 4,
         title: "Content Intelligence Agency",
         role: "nlp",
         category: "data-scientist",
@@ -63,7 +83,7 @@ const projectData = [
         detailedDescription: "Built an advanced NLP pipeline for content analysis, sentiment analysis, and automated categorization. The system processes large volumes of text data to extract meaningful insights and patterns."
     },
     {
-        id: 4,
+        id: 5,
         title: "Human Trafficking Data Analysis",
         role: "data-analyst",
         category: "data-analyst",
@@ -71,7 +91,7 @@ const projectData = [
         description: "Data analysis project supporting UN SDG 16 with comprehensive trafficking pattern analysis.",
         technologies: ["Python", "R", "Tableau", "SQL", "Power BI"],
         githubUrl: "https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/Human_Trafficking_Data_Analysis_(SDG16)",
-        client: "NGO Partnership",
+        client: "Breda University of Applied Sciences",
         duration: "2 months",
         outcomes: [
             "Identified trafficking hotspots and patterns",
@@ -81,7 +101,7 @@ const projectData = [
         detailedDescription: "Comprehensive data analysis project examining human trafficking patterns globally. The analysis supports policy-making and intervention strategies aligned with UN Sustainable Development Goal 16."
     },
     {
-        id: 5,
+        id: 6,
         title: "ANWB Traffic Prediction",
         role: "ml-engineer",
         category: "data-engineer",
@@ -99,7 +119,7 @@ const projectData = [
         detailedDescription: "Developed a real-time traffic prediction system using machine learning models and big data technologies. The system processes streaming traffic data to provide accurate predictions and route recommendations."
     },
     {
-        id: 6,
+        id: 7,
         title: "Policy Research for SMEs",
         role: "data-analyst",
         category: "data-analyst",
@@ -107,7 +127,7 @@ const projectData = [
         description: "Data-driven policy research and analysis for small and medium enterprises.",
         technologies: ["R", "Python", "SPSS", "Excel", "Power BI"],
         githubUrl: "https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/Policy_Research_for_SMEs",
-        client: "Government Agency",
+        client: "Digiwerkplaats",
         duration: "2 months",
         outcomes: [
             "Comprehensive SME policy analysis",
