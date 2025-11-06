@@ -389,7 +389,7 @@ const certificateData = [
         difficulty: "Beginner",
         description: "Essential professional skills including resume optimization, mental health awareness, and stress management techniques.",
         skills: ["Resume Writing", "Mental Health Awareness", "Stress Management", "Professional Development"],
-        image: "resources/certificates/Professional_Development/Professional Skills Resume Writing, Mental Health, Stress Management.jpg",
+        image: "resources/certificates/Professional_Development/Reduce Stress and Anxiety by Managing Your Nervous System.jpg",
         outcomes: [
             "Created compelling professional resume",
             "Developed mental health awareness",
