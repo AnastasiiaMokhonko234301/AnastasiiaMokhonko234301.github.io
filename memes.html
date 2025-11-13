@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Mood Boost - Anastasiia Mokhonko</title>
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2C2C2C',
+                        sage: '#7A8471',
+                        cream: '#F5F3F0',
+                        terracotta: '#C4A484',
+                        bluegray: '#8B9DC3'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #7A8471, #8B9DC3, #C4A484);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .meme-container {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-cream to-gray-100 min-h-screen flex items-center justify-center p-4">
+    <div class="max-w-4xl w-full">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 gradient-text">
+                🎉 Daily Mood Boost 🎉
+            </h1>
+            <p class="text-xl text-gray-600 mb-2">
+                You found the secret page! Here's your meme of the day.
+            </p>
+            <p class="text-sm text-gray-500">
+                New meme automatically loads every day • <span id="meme-number"></span>/20
+            </p>
+        </div>
+
+        <!-- Meme Display -->
+        <div class="meme-container bg-white rounded-2xl shadow-2xl p-8 mb-8">
+            <div class="flex justify-center items-center min-h-[400px]">
+                <img id="daily-meme" src="" alt="Daily Meme" class="max-w-full h-auto rounded-lg shadow-lg">
+            </div>
+        </div>
+
+        <!-- Info and Navigation -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 mb-8">
+            <div class="text-center">
+                <p class="text-gray-600 mb-4">
+                    This meme changes automatically every day based on the date. Come back tomorrow for a new one!
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <button onclick="showRandomMeme()" class="bg-sage text-white px-6 py-3 rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
+                        🎲 Show Random Meme
+                    </button>
+                    <a href="index.html" class="border-2 border-sage text-sage px-6 py-3 rounded-full hover:bg-sage hover:text-white transition-all duration-300 transform hover:scale-105">
+                        ← Back to Portfolio
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Easter Egg Message -->
+        <div class="text-center text-sm text-gray-500">
+            <p>🤫 Shhh... this is a secret page. Share the link if you want to spread the joy!</p>
+            <p class="mt-2">
+                <a href="index.html#contact" class="text-sage hover:underline">Contact me</a> if you enjoyed this little surprise 😊
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Array of meme filenames
+        const memes = [
+            'resources/memes/meme (1).jpg',
+            'resources/memes/meme (2).jpg',
+            'resources/memes/meme (3).jpg',
+            'resources/memes/meme (4).jpg',
+            'resources/memes/meme (5).jpg',
+            'resources/memes/meme (6).jpg',
+            'resources/memes/meme (7).jpg',
+            'resources/memes/meme (8).jpg',
+            'resources/memes/meme (9).jpg',
+            'resources/memes/meme (10).jpg',
+            'resources/memes/meme (11).jpg',
+            'resources/memes/meme (12).jpg',
+            'resources/memes/meme (13).jpg',
+            'resources/memes/meme (14).jpg',
+            'resources/memes/meme (15).jpg',
+            'resources/memes/meme (16).jpg',
+            'resources/memes/meme (17).jpg',
+            'resources/memes/meme (18).jpg',
+            'resources/memes/meme (19).jpg',
+            'resources/memes/meme (20).jpg'
+        ];
+
+        // Get meme index based on day of year
+        function getDayOfYear() {
+            const now = new Date();
+            const start = new Date(now.getFullYear(), 0, 0);
+            const diff = now - start;
+            const oneDay = 1000 * 60 * 60 * 24;
+            return Math.floor(diff / oneDay);
+        }
+
+        // Load daily meme
+        function loadDailyMeme() {
+            const dayOfYear = getDayOfYear();
+            const memeIndex = dayOfYear % memes.length;
+            
+            document.getElementById('daily-meme').src = memes[memeIndex];
+            document.getElementById('meme-number').textContent = (memeIndex + 1);
+        }
+
+        // Show random meme
+        function showRandomMeme() {
+            const randomIndex = Math.floor(Math.random() * memes.length);
+            document.getElementById('daily-meme').src = memes[randomIndex];
+            document.getElementById('meme-number').textContent = (randomIndex + 1);
+            
+            // Add animation
+            const memeContainer = document.querySelector('.meme-container');
+            memeContainer.style.animation = 'none';
+            setTimeout(() => {
+                memeContainer.style.animation = 'fadeIn 0.5s ease-in-out';
+            }, 10);
+        }
+
+        // Load meme on page load
+        loadDailyMeme();
+    </script>
+</body>
+</html>
