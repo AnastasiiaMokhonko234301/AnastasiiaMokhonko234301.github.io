@@ -151,7 +151,7 @@ async function initializeApp() {
         initializeProjectFilters();
         initializeProjects();
         initializeSkills();
-        initializeGitHubIntegration();
+        // GitHub integration removed - using certifications preview instead
         initializeContactForm();
         initializeScrollReveal();
         initializeP5Background();
@@ -551,126 +551,8 @@ function initializeSkillsChart() {
     });
 }
 
-// GitHub integration
-async function initializeGitHubIntegration() {
-    try {
-        // Mock GitHub data for demonstration
-        const mockGitHubData = {
-            public_repos: 12,
-            followers: 25,
-            following: 15,
-            languages: {
-                'Jupyter Notebook': 65,
-                'Python': 25,
-                'R': 5,
-                'JavaScript': 3,
-                'HTML': 2
-            }
-        };
-        
-        displayGitHubStats(mockGitHubData);
-        initializeLanguageChart(mockGitHubData.languages);
-        
-    } catch (error) {
-        console.error('Error loading GitHub data:', error);
-        const statsElement = document.getElementById('github-stats');
-        if (statsElement) {
-            statsElement.innerHTML = `
-                <div class="text-center text-gray-500">
-                    <p>GitHub data temporarily unavailable</p>
-                    <a href="https://github.com/AnastasiiaMokhonko234301" target="_blank" class="text-sage hover:underline">
-                        View Profile on GitHub
-                    </a>
-                </div>
-            `;
-        }
-    }
-}
-
-function displayGitHubStats(data) {
-    const statsContainer = document.getElementById('github-stats');
-    if (!statsContainer) return;
-    
-    statsContainer.innerHTML = `
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="text-center p-6 bg-white rounded-lg shadow-lg">
-                <div class="text-3xl font-bold text-sage mb-2">${data.public_repos}</div>
-                <div class="text-gray-600">Public Repositories</div>
-            </div>
-            <div class="text-center p-6 bg-white rounded-lg shadow-lg">
-                <div class="text-3xl font-bold text-bluegray mb-2">${data.followers}</div>
-                <div class="text-gray-600">Followers</div>
-            </div>
-            <div class="text-center p-6 bg-white rounded-lg shadow-lg">
-                <div class="text-3xl font-bold text-terracotta mb-2">${data.following}</div>
-                <div class="text-gray-600">Following</div>
-            </div>
-        </div>
-        <div class="mt-8 text-center">
-            <a href="https://github.com/AnastasiiaMokhonko234301" target="_blank" class="inline-flex items-center space-x-2 bg-charcoal text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-all duration-300">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-                <span>View Full Profile</span>
-            </a>
-        </div>
-    `;
-}
-
-function initializeLanguageChart(languages) {
-    const chartElement = document.getElementById('language-chart');
-    if (!chartElement) return;
-    
-    languageChart = echarts.init(chartElement);
-    
-    const data = Object.entries(languages).map(([name, value]) => ({
-        name,
-        value
-    }));
-    
-    const option = {
-        tooltip: {
-            trigger: 'item',
-            formatter: '{a} <br/>{b}: {c}% ({d}%)'
-        },
-        series: [{
-            name: 'Languages',
-            type: 'pie',
-            radius: ['40%', '70%'],
-            avoidLabelOverlap: false,
-            itemStyle: {
-                borderRadius: 10,
-                borderColor: '#fff',
-                borderWidth: 2
-            },
-            label: {
-                show: false,
-                position: 'center'
-            },
-            emphasis: {
-                label: {
-                    show: true,
-                    fontSize: '18',
-                    fontWeight: 'bold'
-                }
-            },
-            labelLine: {
-                show: false
-            },
-            data: data,
-            color: ['#7A8471', '#8B9DC3', '#C4A484', '#A8A8A8', '#2C2C2C']
-        }]
-    };
-    
-    languageChart.setOption(option);
-    
-    // Responsive chart
-    window.addEventListener('resize', () => {
-        if (languageChart) {
-            languageChart.resize();
-        }
-    });
-}
+// Certifications preview - data handled by certificates page
+// No additional code needed here
 
 // Contact form handling
 function initializeContactForm() {
