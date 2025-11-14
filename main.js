@@ -257,7 +257,7 @@ function initializeHeroAnimations() {
             backSpeed: 50,
             backDelay: 2000,
             loop: false,
-            showCursor: true,
+            showCursor: false,  // Removed blinking cursor
             cursorChar: '|'
         });
     }
@@ -269,14 +269,13 @@ function initializeHeroAnimations() {
                 'Data Science & AI Student',
                 'Machine Learning Engineer',
                 'Computer Vision Specialist',
-                'NLP Practitioner',
-                'Real-World Problem Solver'
+                'NLP Practitioner'
             ],
             typeSpeed: 80,
             backSpeed: 40,
             backDelay: 2000,
             loop: true,
-            showCursor: true,
+            showCursor: false,  // Removed blinking cursor
             cursorChar: '|'
         });
     }
