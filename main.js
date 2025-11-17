@@ -249,35 +249,16 @@ function updateActiveNavigation() {
 
 // Hero section animations
 function initializeHeroAnimations() {
-    // Typewriter effect for name
-    if (document.getElementById('typed-name')) {
-        new Typed('#typed-name', {
-            strings: ['Anastasiia Mokhonko'],
-            typeSpeed: 100,
-            backSpeed: 50,
-            backDelay: 2000,
-            loop: false,
-            showCursor: false,  // Removed blinking cursor
-            cursorChar: '|'
-        });
+    // Simple text display for name (no animation)
+    const nameElement = document.getElementById('typed-name');
+    if (nameElement) {
+        nameElement.textContent = 'Anastasiia Mokhonko';
     }
 
-    // Typewriter effect for role
-    if (document.getElementById('typed-role')) {
-        new Typed('#typed-role', {
-            strings: [
-                'Data Science & AI Student',
-                'Machine Learning Engineer',
-                'Computer Vision Specialist',
-                'NLP Practitioner'
-            ],
-            typeSpeed: 80,
-            backSpeed: 40,
-            backDelay: 2000,
-            loop: true,
-            showCursor: false,  // Removed blinking cursor
-            cursorChar: '|'
-        });
+    // Simple text display for role (no animation)
+    const roleElement = document.getElementById('typed-role');
+    if (roleElement) {
+        roleElement.textContent = 'Data Science & AI Student';
     }
 }
 
