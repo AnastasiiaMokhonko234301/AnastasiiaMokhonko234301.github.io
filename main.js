@@ -575,6 +575,9 @@ function initializeContactForm() {
     const contactForm = document.getElementById('contact-form');
     if (!contactForm) return;
     
+    // Initialize EmailJS
+    emailjs.init('F9UYKjBiLXkfo9toQ');
+    
     contactForm.addEventListener('submit', handleContactSubmit);
 }
 
@@ -591,8 +594,13 @@ async function handleContactSubmit(e) {
     submitBtn.disabled = true;
     
     try {
-        // Simulate form submission (replace with actual EmailJS integration)
-        await simulateFormSubmission(data);
+        // Send email using EmailJS
+        await emailjs.send('service_e1qhqmf', 'template_9vrx9mv', {
+            name: data.name,
+            email: data.email,
+            subject: data.subject,
+            message: data.message
+        });
         
         // Show success message
         showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
@@ -600,7 +608,7 @@ async function handleContactSubmit(e) {
         
     } catch (error) {
         console.error('Error sending message:', error);
-        showNotification('Failed to send message. Please try again or contact me directly.', 'error');
+        showNotification('Failed to send message. Please try again or email me directly at mohonko.anastasia@gmail.com', 'error');
     } finally {
         // Reset button state
         submitBtn.textContent = originalText;
@@ -609,17 +617,8 @@ async function handleContactSubmit(e) {
 }
 
 async function simulateFormSubmission(data) {
-    // Simulate API delay
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            // Simulate 90% success rate
-            if (Math.random() > 0.1) {
-                resolve(data);
-            } else {
-                reject(new Error('Simulated error'));
-            }
-        }, 2000);
-    });
+    // This function is no longer needed - keeping for compatibility
+    return Promise.resolve(data);
 }
 
 function showNotification(message, type = 'info') {
