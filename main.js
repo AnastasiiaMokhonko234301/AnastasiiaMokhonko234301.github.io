@@ -5,6 +5,8 @@ let projects = [];
 let currentFilter = 'all';
 let skillsChart = null;
 let languageChart = null;
+let currentProjectIndex = 0;
+let totalProjects = 8;
 
 // Project data with comprehensive information
 const projectData = [
@@ -170,6 +172,7 @@ async function initializeApp() {
         initializeHeroAnimations();
         initializeProjectFilters();
         initializeProjects();
+        initializeProjectNavigation(); // Add this line
         initializeSkills();
         // GitHub integration removed - using certifications preview instead
         initializeContactForm();
@@ -180,6 +183,143 @@ async function initializeApp() {
     } catch (error) {
         console.error('Error initializing portfolio:', error);
     }
+}
+
+// Project Navigation functionality
+function initializeProjectNavigation() {
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const projectsContainer = document.getElementById('projects-container');
+    const navDots = document.querySelectorAll('.nav-dot');
+    const progressBar = document.getElementById('progress-bar');
+    
+    if (!projectsContainer || !prevBtn || !nextBtn) return;
+    
+    // Previous button click handler
+    prevBtn.addEventListener('click', () => {
+        if (currentProjectIndex > 0) {
+            currentProjectIndex--;
+            updateProjectView();
+        }
+    });
+    
+    // Next button click handler
+    nextBtn.addEventListener('click', () => {
+        if (currentProjectIndex < totalProjects - 1) {
+            currentProjectIndex++;
+            updateProjectView();
+        }
+    });
+    
+    // Navigation dots click handlers
+    navDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentProjectIndex = index;
+            updateProjectView();
+        });
+    });
+    
+    // Touch/swipe support for mobile
+    let startX = 0;
+    let endX = 0;
+    
+    projectsContainer.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+    });
+    
+    projectsContainer.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX;
+        handleSwipe();
+    });
+    
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const swipeDistance = startX - endX;
+        
+        if (Math.abs(swipeDistance) > swipeThreshold) {
+            if (swipeDistance > 0 && currentProjectIndex < totalProjects - 1) {
+                // Swipe left - next project
+                currentProjectIndex++;
+                updateProjectView();
+            } else if (swipeDistance < 0 && currentProjectIndex > 0) {
+                // Swipe right - previous project
+                currentProjectIndex--;
+                updateProjectView();
+            }
+        }
+    }
+    
+    // Update project view function
+    function updateProjectView() {
+        const projectSlides = document.querySelectorAll('.project-slide');
+        const currentProjectSpan = document.getElementById('current-project');
+        
+        // Update scroll position
+        if (projectsContainer) {
+            const slideWidth = projectSlides[0].offsetWidth;
+            projectsContainer.scrollTo({
+                left: slideWidth * currentProjectIndex,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Update counter
+        if (currentProjectSpan) {
+            currentProjectSpan.textContent = currentProjectIndex + 1;
+        }
+        
+        // Update navigation dots
+        navDots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentProjectIndex);
+        });
+        
+        // Update progress bar
+        if (progressBar) {
+            const progressPercent = ((currentProjectIndex + 1) / totalProjects) * 100;
+            progressBar.style.width = `${progressPercent}%`;
+        }
+        
+        // Update arrow button states
+        prevBtn.style.opacity = currentProjectIndex === 0 ? '0.5' : '1';
+        nextBtn.style.opacity = currentProjectIndex === totalProjects - 1 ? '0.5' : '1';
+        
+        // Animate outcome items
+        const outcomeItems = document.querySelectorAll('.outcome-item');
+        outcomeItems.forEach((item, index) => {
+            setTimeout(() => {
+                item.classList.add('visible');
+            }, index * 100);
+        });
+    }
+    
+    // Initialize view
+    updateProjectView();
+    
+    // Handle scroll events to sync navigation
+    projectsContainer.addEventListener('scroll', debounce(() => {
+        const projectSlides = document.querySelectorAll('.project-slide');
+        if (projectSlides.length > 0) {
+            const slideWidth = projectSlides[0].offsetWidth;
+            const scrollLeft = projectsContainer.scrollLeft;
+            const newIndex = Math.round(scrollLeft / slideWidth);
+            
+            if (newIndex !== currentProjectIndex && newIndex >= 0 && newIndex < totalProjects) {
+                currentProjectIndex = newIndex;
+                updateProjectView();
+            }
+        }
+    }, 100));
+    
+    // Add keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft' && currentProjectIndex > 0) {
+            currentProjectIndex--;
+            updateProjectView();
+        } else if (e.key === 'ArrowRight' && currentProjectIndex < totalProjects - 1) {
+            currentProjectIndex++;
+            updateProjectView();
+        }
+    });
 }
 
 // Navigation functionality

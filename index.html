@@ -54,46 +54,6 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
-        .project-card {
-            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-            transform-style: preserve-3d;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-8px) rotateX(5deg) rotateY(5deg);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-        }
-        
-        .filter-btn {
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .filter-btn.active {
-            background: linear-gradient(135deg, #7A8471, #8B9DC3);
-            color: white;
-        }
-        
-        .filter-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        }
-        
-        .skill-bar {
-            height: 8px;
-            background: #e5e7eb;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        
-        .skill-progress {
-            height: 100%;
-            background: linear-gradient(90deg, #7A8471, #8B9DC3);
-            border-radius: 4px;
-            transition: width 1s cubic-bezier(0.4, 0.0, 0.2, 1);
-        }
-        
         .floating-element {
             animation: float 6s ease-in-out infinite;
         }
@@ -131,6 +91,193 @@
             top: 0;
             left: 0;
             z-index: -1;
+        }
+
+        .opportunity-badge {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(122, 132, 113, 0.2);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-tag {
+            background: rgba(122, 132, 113, 0.1);
+            border: 1px solid rgba(122, 132, 113, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-tag:hover {
+            background: rgba(122, 132, 113, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .category-card {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Magazine-style Projects Styles */
+        .projects-container {
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+        }
+        
+        .project-slide {
+            scroll-snap-align: start;
+            min-width: 100%;
+            transition: all 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+        
+        .project-image {
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(122, 132, 113, 0.1), rgba(139, 157, 195, 0.1));
+            z-index: 1;
+        }
+        
+        .tech-tag {
+            background: rgba(122, 132, 113, 0.1);
+            border: 1px solid rgba(122, 132, 113, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-tag:hover {
+            background: rgba(122, 132, 113, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .outcome-item {
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.5s ease;
+        }
+        
+        .outcome-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .navigation-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 24px;
+        }
+        
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(122, 132, 113, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-dot.active {
+            background: #7A8471;
+            transform: scale(1.2);
+        }
+        
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: none;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-arrow:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .nav-arrow.prev {
+            left: 24px;
+        }
+        
+        .nav-arrow.next {
+            right: 24px;
+        }
+        
+        .project-counter {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            border-radius: 24px;
+            font-weight: 600;
+            color: #2C2C2C;
+            z-index: 5;
+        }
+        
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #7A8471, #8B9DC3);
+            transition: width 0.3s ease;
+            z-index: 5;
+        }
+        
+        /* Responsive layout adjustments */
+        @media (max-width: 1024px) {
+            .hero-layout {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-layout > div:last-child {
+                order: -1;
+                margin-bottom: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .project-slide {
+                flex-direction: column;
+            }
+            
+            .project-image {
+                min-height: 50vh;
+            }
+            
+            .nav-arrow {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -175,28 +322,70 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero-bg min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <div class="floating-element">
-                <img src="resources/profile-photo.jpg" alt="Anastasiia Mokhonko" class="w-32 h-32 rounded-full mx-auto mb-8 border-4 border-white shadow-2xl">
-            </div>
-            <h1 class="text-5xl md:text-7xl font-bold mb-6">
-                <span id="typed-name" class="gradient-text"></span>
-            </h1>
-            <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-                <span id="typed-role"></span>
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="#projects" class="bg-sage text-white px-8 py-3 rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                    View My Work
-                </a>
-                <a href="about.html" class="border-2 border-sage text-sage px-8 py-3 rounded-full hover:bg-sage hover:text-white transition-all duration-300 transform hover:scale-105">
-                    Learn More About Me
-                </a>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="hero-layout flex items-center justify-between lg:flex-row flex-col gap-12 lg:gap-16">
+                <!-- Left Content -->
+                <div class="flex-1 lg:text-left text-center">
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                        <span class="text-charcoal">Hi, I'm </span>
+                        <span class="gradient-text italic">Anastasiia</span><br>
+                        <span class="gradient-text italic">Mokhonko</span>
+                    </h1>
+                    
+                    <p class="text-2xl md:text-3xl lg:text-4xl font-medium text-bluegray mb-8">
+                        Data Science & AI Student
+                    </p>
+
+                    <!-- Skills Tags -->
+                    <div class="flex flex-wrap gap-2 mb-8 lg:justify-start justify-center text-sm">
+                        <span class="text-gray-600">Machine Learning</span>
+                        <span class="text-gray-400">â€¢</span>
+                        <span class="text-gray-600">Computer Vision</span>
+                        <span class="text-gray-400">â€¢</span>
+                        <span class="text-gray-600">NLP</span>
+                        <span class="text-gray-400">â€¢</span>
+                        <span class="text-gray-600">Data Engineering</span>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="mb-8">
+                        <p class="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl lg:mx-0 mx-auto">
+                            Creating data-driven solutions with curiosity, strategy, and<br>
+                            a little rebellion, because great insights come from asking<br>
+                            <span class="font-bold text-charcoal">"WHAT IF?"</span> and <span class="font-bold text-charcoal">"WHY NOT?"</span>
+                        </p>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <div class="lg:text-left text-center">
+                        <a href="#projects" class="inline-flex items-center space-x-2 bg-sage text-white px-8 py-4 rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                            <span class="font-medium">Check out My Work</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Content - Profile Image -->
+                <div class="flex-shrink-0 relative">
+                    <div class="floating-element relative">
+                        <img src="resources/profile-photo.jpg" alt="Anastasiia Mokhonko" class="w-80 h-80 lg:w-96 lg:h-96 rounded-full object-cover border-8 border-white shadow-2xl">
+                        
+                        <!-- Opportunity Badge -->
+                        <div class="opportunity-badge absolute -bottom-4 -right-4 px-6 py-3 rounded-full">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                                <span class="text-sm font-semibold text-charcoal whitespace-nowrap">Open to New Opportunities</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects Section - Magazine Style -->
     <section id="projects" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
@@ -204,41 +393,680 @@
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
                     Real-world data science and AI solutions delivered for clients across diverse industries
                 </p>
+                <div class="mt-8 text-sm text-gray-500">
+                    Scroll horizontally or use arrows to explore | Swipe on mobile
+                </div>
             </div>
 
-            <!-- Filter Buttons -->
-            <div class="flex flex-wrap justify-center gap-4 mb-12 scroll-reveal">
-                <button class="filter-btn active px-6 py-3 rounded-full border-2 border-sage text-sage font-medium" data-filter="all">
-                    All Projects
+            <!-- Project Carousel Container -->
+            <div class="relative">
+                <!-- Project Counter -->
+                <div class="project-counter">
+                    <span id="current-project">1</span> / <span id="total-projects">8</span>
+                </div>
+                
+                <!-- Navigation Arrows -->
+                <button class="nav-arrow prev" id="prev-btn" aria-label="Previous project">
+                    <svg class="w-6 h-6 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
                 </button>
-                <button class="filter-btn px-6 py-3 rounded-full border-2 border-sage text-sage font-medium" data-filter="data-scientist">
-                    Data Scientist
+                
+                <button class="nav-arrow next" id="next-btn" aria-label="Next project">
+                    <svg class="w-6 h-6 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
                 </button>
-                <button class="filter-btn px-6 py-3 rounded-full border-2 border-sage text-sage font-medium" data-filter="data-analyst">
-                    Data Analyst
-                </button>
-                <button class="filter-btn px-6 py-3 rounded-full border-2 border-sage text-sage font-medium" data-filter="data-engineer">
-                    Data Engineer
-                </button>
-                <button class="filter-btn px-6 py-3 rounded-full border-2 border-sage text-sage font-medium" data-filter="ml-engineer">
-                    ML Engineer
-                </button>
-                <button class="filter-btn px-6 py-3 rounded-full border-2 border-sage text-sage font-medium" data-filter="computer-vision">
-                    Computer Vision
-                </button>
-                <button class="filter-btn px-6 py-3 rounded-full border-2 border-sage text-sage font-medium" data-filter="nlp">
-                    NLP
-                </button>
-            </div>
+                
+                <!-- Progress Bar -->
+                <div class="progress-bar" id="progress-bar"></div>
+                
+                <!-- Projects Container -->
+                <div class="projects-container overflow-x-auto flex" id="projects-container">
+                    <!-- Project 1: Medical AI System -->
+                    <div class="project-slide flex min-h-[80vh]" data-project="1">
+                        <div class="w-1/2 project-image relative" style="background-image: url('resources/project-covers/medical-ai.jpg');">
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent to-black/20"></div>
+                            <div class="absolute bottom-8 left-8 z-10">
+                                <span class="bg-sage text-white px-4 py-2 rounded-full text-sm font-medium">
+                                    Computer Vision
+                                </span>
+                                <div class="mt-2">
+                                    <span class="bg-terracotta text-white px-4 py-2 rounded-full text-sm font-medium">
+                                        Medical AI
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-1/2 p-12 flex flex-col justify-center bg-cream">
+                            <h3 class="text-4xl font-bold mb-6 text-charcoal">Medical AI System</h3>
+                            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                                Advanced deep learning system for automated medical image analysis from CT scans. 
+                                Implemented multiple state-of-the-art architectures including 3D U-Net, ResU-Net, V-Net, and nnU-Net 
+                                with comprehensive data preprocessing pipelines for medical imaging applications.
+                            </p>
+                            
+                            <div class="mb-8">
+                                <h4 class="font-bold text-charcoal mb-4">Technologies Used</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">Python</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">PyTorch</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">3D U-Net</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">ResU-Net</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">V-Net</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">nnU-Net</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">SimpleITK</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">Medical Imaging</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-8">
+                                <h4 class="font-bold text-charcoal mb-4">Key Achievements</h4>
+                                <ul class="space-y-3">
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">Achieved 94.1% Dice score in 3D medical image segmentation</span>
+                                    </li>
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">Processed 162 CT scan cases with automated preprocessing</span>
+                                    </li>
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">Implemented comprehensive validation and testing framework</span>
+                                    </li>
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">Project currently in active development</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="flex space-x-4">
+                                <div class="bg-gray-100 text-gray-600 px-6 py-3 rounded-lg flex items-center space-x-2">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                    <span>Confidential Project</span>
+                                </div>
+                                <button class="border-2 border-sage text-sage px-6 py-3 rounded-lg hover:bg-sage hover:text-white transition-all duration-300">
+                                    Learn More
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2: Potato Leaf Disease Classification -->
+                    <div class="project-slide flex min-h-[80vh]" data-project="2">
+                        <div class="w-1/2 project-image relative" style="background-image: url('resources/project-covers/leaf-disease.jpg');">
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent to-black/20"></div>
+                            <div class="absolute bottom-8 left-8 z-10">
+                                <span class="bg-sage text-white px-4 py-2 rounded-full text-sm font-medium">
+                                    Computer Vision
+                                </span>
+                                <div class="mt-2">
+                                    <span class="bg-bluegray text-white px-4 py-2 rounded-full text-sm font-medium">
+                                        Agriculture AI
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-1/2 p-12 flex flex-col justify-center bg-cream">
+                            <h3 class="text-4xl font-bold mb-6 text-charcoal">Potato Leaf Disease Classification</h3>
+                            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                                Advanced computer vision system for automated detection and classification of potato leaf diseases 
+                                using deep learning. Enables early intervention for crop protection and yield optimization.
+                            </p>
+                            
+                            <div class="mb-8">
+                                <h4 class="font-bold text-charcoal mb-4">Technologies Used</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">Python</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">OpenCV</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">TensorFlow</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">Keras</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">CNN</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">Image Processing</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-8">
+                                <h4 class="font-bold text-charcoal mb-4">Key Achievements</h4>
+                                <ul class="space-y-3">
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">Achieved 95.3% accuracy in disease classification</span>
+                                    </li>
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">Identified 12 different potato leaf diseases</span>
+                                    </li>
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">Reduced diagnostic time by 85%</span>
+                                    </li>
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">Enabled early intervention for crop protection</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/CV_FarmersBuddy" target="_blank" class="bg-charcoal text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-all duration-300 flex items-center space-x-2">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    <span>View Project</span>
+                                </a>
+                                <button class="border-2 border-sage text-sage px-6 py-3 rounded-lg hover:bg-sage hover:text-white transition-all duration-300">
+                                    Learn More
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3: NAC Breda Football Analytics -->
+                    <div class="project-slide flex min-h-[80vh]" data-project="3">
+                        <div class="w-1/2 project-image relative" style="background-image: url('resources/project-covers/nac-football.jpg');">
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent to-black/20"></div>
+                            <div class="absolute bottom-8 left-8 z-10">
+                                <span class="bg-sage text-white px-4 py-2 rounded-full text-sm font-medium">
+                                    Machine Learning
+                                </span>
+                                <div class="mt-2">
+                                    <span class="bg-terracotta text-white px-4 py-2 rounded-full text-sm font-medium">
+                                        Sports Analytics
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-1/2 p-12 flex flex-col justify-center bg-cream">
+                            <h3 class="text-4xl font-bold mb-6 text-charcoal">Goal Prediction for NAC Breda</h3>
+                            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                                Machine learning model for predicting football match outcomes and player performance analysis. 
+                                Delivered actionable insights for coaching staff and enhanced team strategy decisions.
+                            </p>
+                            
+                            <div class="mb-8">
+                                <h4 class="font-bold text-charcoal mb-4">Technologies Used</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">Python</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">Scikit-learn</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">XGBoost</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">Pandas</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">Matplotlib</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">Statistical Analysis</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-8">
+                                <h4 class="font-bold text-charcoal mb-4">Key Achievements</h4>
+                                <ul class="space-y-3">
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">95%+ accuracy in goal-scoring predictions</span>
+                                    </li>
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">Identified key performance indicators</span>
+                                    </li>
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">Enhanced team strategy decisions</span>
+                                    </li>
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">Real client impact for professional football club</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/ML_GoalPrediction_NAC" target="_blank" class="bg-charcoal text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-all duration-300 flex items-center space-x-2">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    <span>View Project</span>
+                                </a>
+                                <button class="border-2 border-sage text-sage px-6 py-3 rounded-lg hover:bg-sage hover:text-white transition-all duration-300">
+                                    Learn More
+                                </button>
+                            </div>
+                        </div>
+                    </div>
 
-            <!-- Projects Grid -->
-            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project cards will be dynamically generated -->
+                    <!-- Project 4: Content Intelligence Agency NLP -->
+                    <div class="project-slide flex min-h-[80vh]" data-project="4">
+                        <div class="w-1/2 project-image relative" style="background-image: url('resources/project-covers/emotion-detection.jpg');">
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent to-black/20"></div>
+                            <div class="absolute bottom-8 left-8 z-10">
+                                <span class="bg-sage text-white px-4 py-2 rounded-full text-sm font-medium">
+                                    NLP
+                                </span>
+                                <div class="mt-2">
+                                    <span class="bg-bluegray text-white px-4 py-2 rounded-full text-sm font-medium">
+                                        Content Intelligence
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-1/2 p-12 flex flex-col justify-center bg-cream">
+                            <h3 class="text-4xl font-bold mb-6 text-charcoal">Content Intelligence Agency</h3>
+                            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                                Advanced NLP pipeline for content analysis, sentiment analysis, and automated categorization. 
+                                Processes large volumes of text data to extract meaningful insights and patterns.
+                            </p>
+                            
+                            <div class="mb-8">
+                                <h4 class="font-bold text-charcoal mb-4">Technologies Used</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">Python</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">NLTK</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">SpaCy</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">Transformers</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">BERT</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">Sentiment Analysis</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-8">
+                                <h4 class="font-bold text-charcoal mb-4">Key Achievements</h4>
+                                <ul class="space-y-3">
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">92% accuracy in automated content categorization</span>
+                                    </li>
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">Reduced manual review time by 80%</span>
+                                    </li>
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">Enhanced content quality metrics</span>
+                                    </li>
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">Scalable text processing pipeline</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/NLP_ContentIntelligenceAgency" target="_blank" class="bg-charcoal text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-all duration-300 flex items-center space-x-2">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    <span>View Project</span>
+                                </a>
+                                <button class="border-2 border-sage text-sage px-6 py-3 rounded-lg hover:bg-sage hover:text-white transition-all duration-300">
+                                    Learn More
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5: Root Segmentation & Robotic Control -->
+                    <div class="project-slide flex min-h-[80vh]" data-project="5">
+                        <div class="w-1/2 project-image relative" style="background-image: url('resources/project-covers/root-segmentation.jpg');">
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent to-black/20"></div>
+                            <div class="absolute bottom-8 left-8 z-10">
+                                <span class="bg-sage text-white px-4 py-2 rounded-full text-sm font-medium">
+                                    Computer Vision
+                                </span>
+                                <div class="mt-2">
+                                    <span class="bg-terracotta text-white px-4 py-2 rounded-full text-sm font-medium">
+                                        Robotics
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-1/2 p-12 flex flex-col justify-center bg-cream">
+                            <h3 class="text-4xl font-bold mb-6 text-charcoal">Plant Root Segmentation & Robotic Control</h3>
+                            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                                Integrated system for automated plant root analysis and robotic control for precision agriculture applications. 
+                                Combines computer vision with robotics for large-scale phenotyping studies.
+                            </p>
+                            
+                            <div class="mb-8">
+                                <h4 class="font-bold text-charcoal mb-4">Technologies Used</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">Python</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">OpenCV</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">ROS</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">PyTorch</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">Image Segmentation</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">Robotics</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-8">
+                                <h4 class="font-bold text-charcoal mb-4">Key Achievements</h4>
+                                <ul class="space-y-3">
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">Achieved 94% accuracy in root segmentation</span>
+                                    </li>
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">Integrated with robotic control systems</span>
+                                    </li>
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">Reduced manual labor by 60%</span>
+                                    </li>
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">Improved crop yield prediction accuracy</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/CV_RootSegmentation%26RoboticControl" target="_blank" class="bg-charcoal text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-all duration-300 flex items-center space-x-2">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    <span>View Project</span>
+                                </a>
+                                <button class="border-2 border-sage text-sage px-6 py-3 rounded-lg hover:bg-sage hover:text-white transition-all duration-300">
+                                    Learn More
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 6: ANWB Traffic Prediction -->
+                    <div class="project-slide flex min-h-[80vh]" data-project="6">
+                        <div class="w-1/2 project-image relative" style="background-image: url('resources/project-covers/traffic-prediction.jpg');">
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent to-black/20"></div>
+                            <div class="absolute bottom-8 left-8 z-10">
+                                <span class="bg-sage text-white px-4 py-2 rounded-full text-sm font-medium">
+                                    Machine Learning
+                                </span>
+                                <div class="mt-2">
+                                    <span class="bg-bluegray text-white px-4 py-2 rounded-full text-sm font-medium">
+                                        Traffic Analytics
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-1/2 p-12 flex flex-col justify-center bg-cream">
+                            <h3 class="text-4xl font-bold mb-6 text-charcoal">ANWB Traffic Prediction</h3>
+                            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                                Real-time traffic prediction system using machine learning models and big data technologies. 
+                                Processes streaming traffic data to provide accurate predictions and route recommendations.
+                            </p>
+                            
+                            <div class="mb-8">
+                                <h4 class="font-bold text-charcoal mb-4">Technologies Used</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">Python</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">Apache Spark</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">Kafka</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">TensorFlow</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">PostgreSQL</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">Time Series</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-8">
+                                <h4 class="font-bold text-charcoal mb-4">Key Achievements</h4>
+                                <ul class="space-y-3">
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">85% accuracy in traffic flow prediction</span>
+                                    </li>
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">Reduced travel time by 15% on average</span>
+                                    </li>
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">Improved route recommendation system</span>
+                                    </li>
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">Real-time data processing at scale</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/ML_ANWB" target="_blank" class="bg-charcoal text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-all duration-300 flex items-center space-x-2">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    <span>View Project</span>
+                                </a>
+                                <button class="border-2 border-sage text-sage px-6 py-3 rounded-lg hover:bg-sage hover:text-white transition-all duration-300">
+                                    Learn More
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 7: Human Trafficking Data Analysis -->
+                    <div class="project-slide flex min-h-[80vh]" data-project="7">
+                        <div class="w-1/2 project-image relative" style="background-image: url('resources/project-covers/human-trafficking.jpg');">
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent to-black/20"></div>
+                            <div class="absolute bottom-8 left-8 z-10">
+                                <span class="bg-sage text-white px-4 py-2 rounded-full text-sm font-medium">
+                                    Data Analysis
+                                </span>
+                                <div class="mt-2">
+                                    <span class="bg-terracotta text-white px-4 py-2 rounded-full text-sm font-medium">
+                                        Social Impact
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-1/2 p-12 flex flex-col justify-center bg-cream">
+                            <h3 class="text-4xl font-bold mb-6 text-charcoal">Human Trafficking Data Analysis</h3>
+                            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                                Comprehensive data analysis project examining human trafficking patterns globally. 
+                                Supporting UN SDG 16 with data-driven policy recommendations and intervention strategies.
+                            </p>
+                            
+                            <div class="mb-8">
+                                <h4 class="font-bold text-charcoal mb-4">Technologies Used</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">Python</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">R</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">Tableau</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">SQL</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">Power BI</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">Statistical Analysis</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-8">
+                                <h4 class="font-bold text-charcoal mb-4">Key Achievements</h4>
+                                <ul class="space-y-3">
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">Identified trafficking hotspots and patterns</span>
+                                    </li>
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">Provided data-driven policy recommendations</span>
+                                    </li>
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">Contributed to UN SDG 16 initiatives</span>
+                                    </li>
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">Created comprehensive visualization dashboards</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/Human_Trafficking_Data_Analysis_(SDG16)" target="_blank" class="bg-charcoal text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-all duration-300 flex items-center space-x-2">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    <span>View Project</span>
+                                </a>
+                                <button class="border-2 border-sage text-sage px-6 py-3 rounded-lg hover:bg-sage hover:text-white transition-all duration-300">
+                                    Learn More
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 8: Policy Research for SMEs -->
+                    <div class="project-slide flex min-h-[80vh]" data-project="8">
+                        <div class="w-1/2 project-image relative" style="background-image: url('resources/project-covers/cybersecurity-smes.jpg');">
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent to-black/20"></div>
+                            <div class="absolute bottom-8 left-8 z-10">
+                                <span class="bg-sage text-white px-4 py-2 rounded-full text-sm font-medium">
+                                    Policy Research
+                                </span>
+                                <div class="mt-2">
+                                    <span class="bg-bluegray text-white px-4 py-2 rounded-full text-sm font-medium">
+                                        SME Analysis
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-1/2 p-12 flex flex-col justify-center bg-cream">
+                            <h3 class="text-4xl font-bold mb-6 text-charcoal">Policy Research for SMEs</h3>
+                            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                                Comprehensive policy research and analysis for small and medium enterprises. 
+                                Statistical analysis, impact assessment, and evidence-based policy recommendation development.
+                            </p>
+                            
+                            <div class="mb-8">
+                                <h4 class="font-bold text-charcoal mb-4">Technologies Used</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">R</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">Python</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">SPSS</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">Excel</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">Power BI</span>
+                                    <span class="tech-tag px-3 py-1 rounded-full text-sm">Statistical Modeling</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-8">
+                                <h4 class="font-bold text-charcoal mb-4">Key Achievements</h4>
+                                <ul class="space-y-3">
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">Comprehensive SME policy analysis framework</span>
+                                    </li>
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">Evidence-based policy recommendations</span>
+                                    </li>
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">Robust impact assessment methodology</span>
+                                    </li>
+                                    <li class="outcome-item flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-gray-600">Delivered actionable insights for policymakers</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/AnastasiiaMokhonko234301/portfolio_projects/tree/main/Policy_Research_for_SMEs" target="_blank" class="bg-charcoal text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-all duration-300 flex items-center space-x-2">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.30.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    <span>View Project</span>
+                                </a>
+                                <button class="border-2 border-sage text-sage px-6 py-3 rounded-lg hover:bg-sage hover:text-white transition-all duration-300">
+                                    Learn More
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation Dots -->
+                <div class="navigation-dots">
+                    <div class="nav-dot active" data-slide="0"></div>
+                    <div class="nav-dot" data-slide="1"></div>
+                    <div class="nav-dot" data-slide="2"></div>
+                    <div class="nav-dot" data-slide="3"></div>
+                    <div class="nav-dot" data-slide="4"></div>
+                    <div class="nav-dot" data-slide="5"></div>
+                    <div class="nav-dot" data-slide="6"></div>
+                    <div class="nav-dot" data-slide="7"></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Skills Section - UPDATED -->
     <section id="skills" class="py-20 bg-cream">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
@@ -248,54 +1076,199 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <!-- Programming Skills -->
-                <div class="scroll-reveal">
-                    <h3 class="text-2xl font-bold mb-8 text-center">Programming & Tools</h3>
-                    <div class="space-y-6">
-                        <div class="skill-item">
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">Python</span>
-                                <span class="text-sage">95%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="95"></div>
-                            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Programming Languages -->
+                <div class="category-card rounded-2xl p-8 border border-gray-200 scroll-reveal">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-sage to-bluegray rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                            </svg>
                         </div>
-                        <div class="skill-item">
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">SQL</span>
-                                <span class="text-sage">90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="90"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">Power BI</span>
-                                <span class="text-sage">85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="85"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium">Git</span>
-                                <span class="text-sage">85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="85"></div>
-                            </div>
-                        </div>
+                        <h3 class="text-2xl font-bold text-charcoal">Programming Languages</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Python</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">R</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">SQL</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">JavaScript</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">HTML/CSS</span>
                     </div>
                 </div>
 
-                <!-- Skills Radar Chart -->
-                <div class="scroll-reveal">
-                    <h3 class="text-2xl font-bold mb-8 text-center">Expertise Areas</h3>
-                    <div id="skills-chart" class="w-full h-80"></div>
+                <!-- Machine Learning & AI -->
+                <div class="category-card rounded-2xl p-8 border border-gray-200 scroll-reveal">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-bluegray to-terracotta rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-charcoal">Machine Learning & AI</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Scikit-learn</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">TensorFlow</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Keras</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">PyTorch</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">XGBoost</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Random Forest</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Neural Networks</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Deep Learning</span>
+                    </div>
+                </div>
+
+                <!-- Computer Vision -->
+                <div class="category-card rounded-2xl p-8 border border-gray-200 scroll-reveal">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-terracotta to-sage rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-charcoal">Computer Vision</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">OpenCV</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">CNN</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Image Processing</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Object Detection</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Image Segmentation</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Medical Imaging</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">3D Vision</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">SimpleITK</span>
+                    </div>
+                </div>
+
+                <!-- Natural Language Processing -->
+                <div class="category-card rounded-2xl p-8 border border-gray-200 scroll-reveal">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-sage to-bluegray rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-charcoal">Natural Language Processing</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">NLTK</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">SpaCy</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Transformers</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">BERT</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Text Classification</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Sentiment Analysis</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Named Entity Recognition</span>
+                    </div>
+                </div>
+
+                <!-- Data Analysis & Visualization -->
+                <div class="category-card rounded-2xl p-8 border border-gray-200 scroll-reveal">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-bluegray to-terracotta rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-charcoal">Data Analysis & Visualization</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Pandas</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">NumPy</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Matplotlib</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Seaborn</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Plotly</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Tableau</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Power BI</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Statistical Analysis</span>
+                    </div>
+                </div>
+
+                <!-- Data Engineering & MLOps -->
+                <div class="category-card rounded-2xl p-8 border border-gray-200 scroll-reveal">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-terracotta to-sage rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-charcoal">Data Engineering & MLOps</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Docker</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Apache Spark</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Kafka</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">PostgreSQL</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">MongoDB</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Azure ML</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">CI/CD</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">ETL Pipelines</span>
+                    </div>
+                </div>
+
+                <!-- Development Tools & Frameworks -->
+                <div class="category-card rounded-2xl p-8 border border-gray-200 scroll-reveal">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-sage to-bluegray rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-charcoal">Development Tools</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Git</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">GitHub</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Jupyter</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">VS Code</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">PyCharm</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Azure DevOps</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Unit Testing</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Documentation</span>
+                    </div>
+                </div>
+
+                <!-- Specialized Domains -->
+                <div class="category-card rounded-2xl p-8 border border-gray-200 scroll-reveal">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-bluegray to-terracotta rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-charcoal">Specialized Domains</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Medical AI</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Sports Analytics</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Agriculture AI</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Traffic Prediction</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Policy Research</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Content Intelligence</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">Social Impact Analysis</span>
+                        <span class="skill-tag px-4 py-2 rounded-full text-sm font-medium text-charcoal">EU AI Act Compliance</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Summary Statistics -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 scroll-reveal">
+                <div class="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-200">
+                    <div class="text-3xl font-bold gradient-text mb-2">40+</div>
+                    <div class="text-gray-600">Technical Skills</div>
+                </div>
+                <div class="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-200">
+                    <div class="text-3xl font-bold gradient-text mb-2">9</div>
+                    <div class="text-gray-600">Skill Categories</div>
+                </div>
+                <div class="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-200">
+                    <div class="text-3xl font-bold gradient-text mb-2">8</div>
+                    <div class="text-gray-600">Client Projects</div>
+                </div>
+                <div class="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-200">
+                    <div class="text-3xl font-bold gradient-text mb-2">100%</div>
+                    <div class="text-gray-600">Commitment</div>
                 </div>
             </div>
         </div>
@@ -486,8 +1459,8 @@
     <footer class="bg-charcoal text-white py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p class="text-gray-400">
-                © 2025 Anastasiia Mokhonko. All rights reserved. Built with passion for data science and AI. 
-                <a href="memes.html" class="hover:text-sage transition-colors" title="Need a laugh?">🎭</a>
+                Â© 2025 Anastasiia Mokhonko. All rights reserved. Built with passion for data science and AI. 
+                <a href="memes.html" class="hover:text-sage transition-colors" title="Need a laugh?">ðŸŽ­</a>
             </p>
         </div>
     </footer>
