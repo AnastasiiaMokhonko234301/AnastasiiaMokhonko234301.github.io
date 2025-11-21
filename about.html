@@ -4,16 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me - Anastasiia Mokhonko</title>
-    <meta name="description" content="Learn more about Anastasiia Mokhonko, her journey in data science, technical expertise, and professional philosophy.">
+    <meta name="description" content="Learn more about Anastasiia Mokhonko - Data Science & AI Student, machine learning enthusiast, and problem solver.">
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Core Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -38,11 +35,11 @@
     </script>
     
     <style>
-        .hero-bg {
-            background: linear-gradient(135deg, rgba(245,243,240,0.95) 0%, rgba(250,250,250,0.95) 100%), url('resources/hero-bg.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+        .gradient-text {
+            background: linear-gradient(135deg, #7A8471, #8B9DC3, #C4A484);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .glass-effect {
@@ -51,11 +48,13 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
-        .gradient-text {
-            background: linear-gradient(135deg, #7A8471, #8B9DC3, #C4A484);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
         
         .scroll-reveal {
@@ -69,45 +68,68 @@
             transform: translateY(0);
         }
         
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(135deg, #7A8471, #8B9DC3);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
         .timeline-item {
             position: relative;
-            padding-left: 2rem;
         }
         
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: 0;
-            top: 0.5rem;
-            width: 12px;
-            height: 12px;
+            left: 50%;
+            top: 2rem;
+            width: 16px;
+            height: 16px;
             background: #7A8471;
-            border-radius: 50%;
             border: 3px solid white;
-            box-shadow: 0 0 0 3px #7A8471;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            left: 5px;
-            top: 1.5rem;
-            width: 2px;
-            height: calc(100% - 1rem);
-            background: #e5e7eb;
+        @media (max-width: 768px) {
+            .timeline-line::before {
+            left: 24px;
+            }
+            
+            .timeline-item::before {
+            left: 24px;
+            }
+            
+            .timeline-content-mobile {
+            margin-left: 3rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .lg\:w-1\/4, .lg\:w-3\/4 {
+            width: 100% !important;
+            }
+            
+            .lg\:text-right {
+            text-align: left !important;
+            }
+            
+            .lg\:pr-8, .lg\:pl-8 {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            }
         }
         
-        .timeline-item:last-child::after {
-            display: none;
-        }
-        
-        .floating-element {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(245,243,240,0.95) 0%, rgba(250,250,250,0.95) 100%);
         }
     </style>
 </head>
@@ -121,12 +143,12 @@
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="index.html" class="nav-link text-charcoal hover:text-sage transition-colors duration-300">Home</a>
-                        <a href="index.html#projects" class="nav-link text-charcoal hover:text-sage transition-colors duration-300">Projects</a>
-                        <a href="index.html#skills" class="nav-link text-charcoal hover:text-sage transition-colors duration-300">Skills</a>
-                        <a href="certificates.html" class="nav-link text-charcoal hover:text-sage transition-colors duration-300">Certificates</a>
-                        <a href="about.html" class="nav-link text-sage font-medium">About</a>
-                        <a href="index.html#contact" class="nav-link text-charcoal hover:text-sage transition-colors duration-300">Contact</a>
+                        <a href="index.html#home" class="text-charcoal hover:text-sage transition-colors duration-300">Home</a>
+                        <a href="index.html#projects" class="text-charcoal hover:text-sage transition-colors duration-300">Projects</a>
+                        <a href="index.html#skills" class="text-charcoal hover:text-sage transition-colors duration-300">Skills</a>
+                        <a href="certificates.html" class="text-charcoal hover:text-sage transition-colors duration-300">Certificates</a>
+                        <a href="about.html" class="text-sage font-semibold">About me</a>
+                        <a href="index.html#contact" class="text-charcoal hover:text-sage transition-colors duration-300">Contact</a>
                     </div>
                 </div>
                 <div class="md:hidden">
@@ -140,11 +162,11 @@
         </div>
         <div id="mobile-menu" class="md:hidden hidden glass-effect">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="index.html" class="block px-3 py-2 text-charcoal hover:text-sage">Home</a>
+                <a href="index.html#home" class="block px-3 py-2 text-charcoal hover:text-sage">Home</a>
                 <a href="index.html#projects" class="block px-3 py-2 text-charcoal hover:text-sage">Projects</a>
                 <a href="index.html#skills" class="block px-3 py-2 text-charcoal hover:text-sage">Skills</a>
                 <a href="certificates.html" class="block px-3 py-2 text-charcoal hover:text-sage">Certificates</a>
-                <a href="about.html" class="block px-3 py-2 text-sage font-medium">About</a>
+                <a href="about.html" class="block px-3 py-2 text-sage font-semibold">About me</a>
                 <a href="index.html#contact" class="block px-3 py-2 text-charcoal hover:text-sage">Contact</a>
             </div>
         </div>
@@ -152,62 +174,91 @@
 
     <!-- Hero Section -->
     <section class="hero-bg min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex items-center justify-between lg:flex-row flex-col gap-12 lg:gap-16">
+                <!-- Left Content -->
+                <div class="flex-1 lg:text-left text-center">
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                        <span class="text-charcoal">About</span>
+                        <span class="gradient-text italic">Me</span>
+                    </h1>
+                    
+                    <p class="text-2xl md:text-3xl font-medium text-bluegray mb-8">
+                        Data Science & AI Student | Problem Solver | Innovation Enthusiast
+                    </p>
+
+                    <div class="mb-8">
+                        <p class="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl lg:mx-0 mx-auto">
+                            Passionate about leveraging artificial intelligence and machine learning to create 
+                            meaningful solutions that drive real-world impact across diverse industries.
+                        </p>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <div class="lg:text-left text-center">
+                        <a href="#my-journey" class="inline-flex items-center space-x-2 bg-sage text-white px-8 py-4 rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                            <span class="font-medium">Discover My Story</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Content - Profile Image -->
+                <div class="flex-shrink-0 relative">
+                    <div class="floating-element relative">
+                        <img src="resources/profile-photo.jpg" alt="Anastasiia Mokhonko" class="w-80 h-80 lg:w-96 lg:h-96 rounded-full object-cover border-8 border-white shadow-2xl">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Story Section -->
+    <section id="my-journey" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="text-center lg:text-left">
-                    <div class="floating-element mb-8">
-                        <img src="resources/profile-photo.jpg" alt="Anastasiia Mokhonko" class="w-48 h-48 rounded-full mx-auto lg:mx-0 border-4 border-white shadow-2xl">
-                    </div>
-                    <h1 class="text-5xl md:text-6xl font-bold mb-6 gradient-text">
-                        About Me
-                    </h1>
-                    <p class="text-xl md:text-2xl text-gray-600 mb-8">
-                        Data Science & AI Student<br>
-                        <span class="text-sage font-medium">Breda University of Applied Sciences</span>
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <a href="index.html#contact" class="bg-sage text-white px-8 py-3 rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                            Get In Touch
-                        </a>
-                        <a href="https://raw.githubusercontent.com/AnastasiiaMokhonko234301/portfolio_projects/main/Resume_Anastasiia_Mokhonko.pdf" target="_blank" class="border-2 border-sage text-sage px-8 py-3 rounded-full hover:bg-sage hover:text-white transition-all duration-300 transform hover:scale-105">
-                            Download Resume
-                        </a>
+                <div class="scroll-reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-8 gradient-text">My Path to AI</h2>
+                    <div class="space-y-6 text-gray-600 leading-relaxed">
+                        <p>
+                            My journey into Data Science and AI began with a fascination for how technology 
+                            can solve complex real-world problems. Currently pursuing my degree at 
+                            <strong class="text-sage">Breda University of Applied Sciences</strong>, I've immersed myself in 
+                            the rapidly evolving world of artificial intelligence and machine learning.
+                        </p>
+                        <p>
+                            As an <strong class="text-sage">elected student representative</strong> on the Degree Programme Committee, 
+                            I actively work with faculty to improve the Data Science & AI programme, ensuring 
+                            it meets both industry standards and student needs. This role has strengthened my 
+                            leadership skills and deepened my understanding of educational excellence.
+                        </p>
+                        <p>
+                            Through various projects with organizations like <strong class="text-sage">NAC Breda</strong>, 
+                            <strong class="text-sage">ANWB</strong>, <strong class="text-sage">Content Intelligence Agency</strong>, 
+                            <strong class="text-sage">NPEC Netherlands Plant Eco-phenotyping Centre</strong>, and 
+                            <strong class="text-sage">DigiWerkPlaats</strong>, I've gained hands-on experience delivering 
+                            production-ready solutions that create measurable business impact.
+                        </p>
+                        <p>
+                            I believe programming is a form of art - where logic meets creativity to craft elegant 
+                            solutions. My approach combines technical expertise with clear communication and 
+                            comprehensive documentation, enabling me to bridge the gap between complex AI concepts 
+                            and practical business applications.
+                        </p>
                     </div>
                 </div>
-                <div class="scroll-reveal">
-                    <div class="bg-white rounded-2xl p-8 shadow-lg">
-                        <h2 class="text-2xl font-bold mb-6 text-charcoal">Quick Facts</h2>
-                        <div class="space-y-4">
-                            <div class="flex items-center space-x-3">
-                                <svg class="w-5 h-5 text-sage" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-gray-700">Available for projects & collaborations</span>
-                            </div>
-                            <div class="flex items-center space-x-3">
-                                <svg class="w-5 h-5 text-sage" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-gray-700">Based in Breda, Netherlands</span>
-                            </div>
-                            <div class="flex items-center space-x-3">
-                                <svg class="w-5 h-5 text-sage" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                <span class="text-gray-700">7 Real Client Projects Completed</span>
-                            </div>
-                            <div class="flex items-center space-x-3">
-                                <svg class="w-5 h-5 text-sage" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
-                                </svg>
-                                <span class="text-gray-700">Specialized in ML, CV, and NLP</span>
-                            </div>
-                            <div class="flex items-center space-x-3">
-                                <svg class="w-5 h-5 text-sage" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
-                                    <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm9.707 5.707a1 1 0 00-1.414-1.414L9 12.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="text-gray-700">20+ Professional Certificates</span>
+                
+                <div class="scroll-reveal lg:order-last">
+                    <div class="relative">
+                        <div class="aspect-w-4 aspect-h-5">
+                            <img src="resources/hero-bg.jpg" alt="Working Environment" class="rounded-2xl shadow-2xl object-cover w-full h-96">
+                        </div>
+                        <div class="absolute -bottom-4 -right-4 bg-sage text-white px-6 py-4 rounded-2xl shadow-lg">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold">20+</div>
+                                <div class="text-sm opacity-90">Certifications</div>
                             </div>
                         </div>
                     </div>
@@ -216,295 +267,283 @@
         </div>
     </section>
 
-    <!-- Professional Journey -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 scroll-reveal">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Professional Journey</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    My path in data science and AI, marked by continuous learning and real-world impact
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <!-- Education -->
-                <div class="scroll-reveal">
-                    <h3 class="text-2xl font-bold mb-8 text-charcoal">Education</h3>
-                    <div class="space-y-8">
-                        <div class="timeline-item">
-                            <div class="bg-cream rounded-lg p-6">
-                                <div class="flex justify-between items-start mb-3">
-                                    <h4 class="text-lg font-bold text-charcoal">Breda University of Applied Sciences</h4>
-                                    <span class="text-sage font-medium">2023 - Present</span>
-                                </div>
-                                <p class="text-gray-700 mb-2">Bachelor of Science in Data Science & Artificial Intelligence</p>
-                                <p class="text-gray-600 text-sm">
-                                    Project-based education program covering machine learning, computer vision, natural language processing, 
-                                    and data engineering with hands-on industry collaboration and real-world client projects.
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="bg-cream rounded-lg p-6">
-                                <div class="flex justify-between items-start mb-3">
-                                    <h4 class="text-lg font-bold text-charcoal">Relevant Coursework</h4>
-                                    <span class="text-sage font-medium">Ongoing</span>
-                                </div>
-                                <div class="grid grid-cols-2 gap-2 text-sm text-gray-600">
-                                    <span>• Machine Learning Fundamentals</span>
-                                    <span>• Deep Learning & Neural Networks</span>
-                                    <span>• Computer Vision Applications</span>
-                                    <span>• Natural Language Processing</span>
-                                    <span>• Big Data Technologies</span>
-                                    <span>• Statistical Analysis</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Experience -->
-                <div class="scroll-reveal">
-                    <h3 class="text-2xl font-bold mb-8 text-charcoal">Professional Experience</h3>
-                    <div class="space-y-8">
-                        <div class="timeline-item">
-                            <div class="bg-cream rounded-lg p-6">
-                                <div class="flex justify-between items-start mb-3">
-                                    <h4 class="text-lg font-bold text-charcoal">Student Representative - Degree Programme Committee</h4>
-                                    <span class="text-sage font-medium">2024 - Present</span>
-                                </div>
-                                <p class="text-gray-700 mb-2">Breda University of Applied Sciences</p>
-                                <p class="text-gray-600 text-sm">
-                                    Elected as one of three student representatives on the official Data Science & AI programme committee. 
-                                    Collaborate with faculty to improve curriculum quality, course delivery, and student experience. 
-                                    Propose programme enhancements and act as liaison between students and faculty.
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="bg-cream rounded-lg p-6">
-                                <div class="flex justify-between items-start mb-3">
-                                    <h4 class="text-lg font-bold text-charcoal">Research Assistant</h4>
-                                    <span class="text-sage font-medium">2024</span>
-                                </div>
-                                <p class="text-gray-700 mb-2">University Research Projects</p>
-                                <p class="text-gray-600 text-sm">
-                                    Contributed to computer vision research in agricultural applications and 
-                                    policy research for sustainable development goals.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Professional Philosophy -->
+    <!-- Values Section -->
     <section class="py-20 bg-cream">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">My Philosophy</h2>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">My Values & Approach</h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    The principles that guide my approach to data science and AI
+                    The principles that guide my work and professional development
                 </p>
             </div>
-
+            
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white rounded-2xl p-8 shadow-lg scroll-reveal">
-                    <div class="w-16 h-16 bg-sage rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                        </svg>
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:-translate-y-2 scroll-reveal">
+                    <div class="w-16 h-16 bg-gradient-to-br from-sage to-bluegray rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-lightbulb text-2xl text-white"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-center text-charcoal">Innovation Through Data</h3>
-                    <p class="text-gray-600 text-center">
-                        I believe in harnessing the power of data to create innovative solutions that address real-world challenges 
-                        and drive meaningful change across industries.
+                    <h3 class="text-xl font-bold text-charcoal mb-4 text-center">Innovation & Creativity</h3>
+                    <p class="text-gray-600 text-center leading-relaxed">
+                        I believe in pushing boundaries and exploring novel approaches to solve 
+                        complex problems. Every challenge is an opportunity to think creatively 
+                        and develop innovative solutions.
                     </p>
                 </div>
-
-                <div class="bg-white rounded-2xl p-8 shadow-lg scroll-reveal">
-                    <div class="w-16 h-16 bg-bluegray rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                        </svg>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:-translate-y-2 scroll-reveal">
+                    <div class="w-16 h-16 bg-gradient-to-br from-bluegray to-terracotta rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-users text-2xl text-white"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-center text-charcoal">Collaborative Excellence</h3>
-                    <p class="text-gray-600 text-center">
-                        The best solutions emerge from collaborative efforts. I thrive in team environments where diverse 
-                        perspectives contribute to comprehensive and effective outcomes.
+                    <h3 class="text-xl font-bold text-charcoal mb-4 text-center">Collaboration & Communication</h3>
+                    <p class="text-gray-600 text-center leading-relaxed">
+                        Complex problems require diverse perspectives. I value clear communication 
+                        and collaborative teamwork, making technical concepts accessible to 
+                        all stakeholders.
                     </p>
                 </div>
-
-                <div class="bg-white rounded-2xl p-8 shadow-lg scroll-reveal">
-                    <div class="w-16 h-16 bg-terracotta rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:-translate-y-2 scroll-reveal">
+                    <div class="w-16 h-16 bg-gradient-to-br from-terracotta to-sage rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-chart-line text-2xl text-white"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-center text-charcoal">Ethical AI Development</h3>
-                    <p class="text-gray-600 text-center">
-                        Responsible AI development is paramount. I prioritize ethical considerations, transparency, 
-                        and fairness in all machine learning and AI implementations.
+                    <h3 class="text-xl font-bold text-charcoal mb-4 text-center">Continuous Learning</h3>
+                    <p class="text-gray-600 text-center leading-relaxed">
+                        The field of AI evolves rapidly, and I'm committed to staying current 
+                        with the latest technologies, methodologies, and best practices through 
+                        ongoing education and certification.
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:-translate-y-2 scroll-reveal">
+                    <div class="w-16 h-16 bg-gradient-to-br from-sage to-bluegray rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-target text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-charcoal mb-4 text-center">Results-Oriented</h3>
+                    <p class="text-gray-600 text-center leading-relaxed">
+                        While I enjoy the theoretical aspects of AI, my focus is always on 
+                        delivering practical, measurable results that create real value 
+                        for organizations and users.
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:-translate-y-2 scroll-reveal">
+                    <div class="w-16 h-16 bg-gradient-to-br from-bluegray to-terracotta rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-balance-scale text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-charcoal mb-4 text-center">Ethical AI</h3>
+                    <p class="text-gray-600 text-center leading-relaxed">
+                        I believe in developing AI solutions that are transparent, fair, and 
+                        beneficial to society. Ethical considerations are integral to every 
+                        project I undertake.
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:-translate-y-2 scroll-reveal">
+                    <div class="w-16 h-16 bg-gradient-to-br from-terracotta to-sage rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-globe text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-charcoal mb-4 text-center">Global Impact</h3>
+                    <p class="text-gray-600 text-center leading-relaxed">
+                        My goal is to contribute to projects that have positive global impact, 
+                        whether through advancing healthcare, improving sustainability, or 
+                        enhancing quality of life.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Technical Expertise -->
+    <!-- Experience Timeline -->
     <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Technical Expertise</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Comprehensive skills across the data science and AI technology stack
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text leading-tight">Professional Journey</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Key milestones and experiences that shaped my expertise
                 </p>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-cream rounded-2xl p-6 scroll-reveal">
-                    <h3 class="text-lg font-bold mb-4 text-charcoal">Programming Languages</h3>
-                    <div class="space-y-2">
-                        <div class="flex justify-between">
-                            <span class="text-gray-700">Python</span>
-                            <span class="text-sage font-medium">Expert</span>
+            
+            <div class="max-w-4xl mx-auto">
+                <!-- Timeline Item 1 -->
+                <div class="flex flex-col lg:flex-row items-start mb-12 scroll-reveal">
+                    <div class="lg:w-1/4 mb-4 lg:mb-0 lg:text-right lg:pr-8">
+                        <div class="bg-sage text-white px-4 py-2 rounded-full inline-block text-sm font-semibold whitespace-nowrap">
+                            2023 - 2025
                         </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-700">SQL</span>
-                            <span class="text-sage font-medium">Advanced</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-700">R</span>
-                            <span class="text-sage font-medium">Intermediate</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-700">JavaScript</span>
-                            <span class="text-sage font-medium">Intermediate</span>
-                        </div>
+                    </div>
+                    <div class="lg:w-3/4 lg:pl-8 border-l-4 border-sage pl-6 lg:pl-8">
+                        <h3 class="text-2xl font-bold text-charcoal mb-2 leading-tight">Student Representative</h3>
+                        <h4 class="text-lg text-bluegray font-medium mb-4 leading-relaxed">Breda University of Applied Sciences</h4>
+                        <p class="text-gray-600 leading-relaxed">
+                            Elected to represent students on the Degree Programme Committee, worked 
+                            with faculty to enhance the Data Science & AI curriculum and ensure 
+                            program excellence.
+                        </p>
                     </div>
                 </div>
-
-                <div class="bg-cream rounded-2xl p-6 scroll-reveal">
-                    <h3 class="text-lg font-bold mb-4 text-charcoal">ML & AI Frameworks</h3>
-                    <div class="space-y-2">
-                        <div class="flex justify-between">
-                            <span class="text-gray-700">TensorFlow</span>
-                            <span class="text-sage font-medium">Advanced</span>
+                
+                <!-- Timeline Item 2 -->
+                <div class="flex flex-col lg:flex-row items-start mb-12 scroll-reveal">
+                    <div class="lg:w-1/4 mb-4 lg:mb-0 lg:text-right lg:pr-8">
+                        <div class="bg-sage text-white px-4 py-2 rounded-full inline-block text-sm font-semibold whitespace-nowrap">
+                            2024
                         </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-700">PyTorch</span>
-                            <span class="text-sage font-medium">Advanced</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-700">Scikit-learn</span>
-                            <span class="text-sage font-medium">Expert</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-700">XGBoost</span>
-                            <span class="text-sage font-medium">Advanced</span>
-                        </div>
+                    </div>
+                    <div class="lg:w-3/4 lg:pl-8 border-l-4 border-bluegray pl-6 lg:pl-8">
+                        <h3 class="text-2xl font-bold text-charcoal mb-2 leading-tight">Data Science Projects</h3>
+                        <h4 class="text-lg text-bluegray font-medium mb-4 leading-relaxed">Multiple Industry Applications</h4>
+                        <p class="text-gray-600 leading-relaxed">
+                            Delivered diverse AI and machine learning solutions across various sectors, 
+                            from sports analytics to agricultural research, focusing on practical 
+                            implementations that solve real-world challenges.
+                        </p>
                     </div>
                 </div>
-
-                <div class="bg-cream rounded-2xl p-6 scroll-reveal">
-                    <h3 class="text-lg font-bold mb-4 text-charcoal">Data & Analytics</h3>
-                    <div class="space-y-2">
-                        <div class="flex justify-between">
-                            <span class="text-gray-700">Power BI</span>
-                            <span class="text-sage font-medium">Expert</span>
+                
+                <!-- Timeline Item 3 -->
+                <div class="flex flex-col lg:flex-row items-start mb-12 scroll-reveal">
+                    <div class="lg:w-1/4 mb-4 lg:mb-0 lg:text-right lg:pr-8">
+                        <div class="bg-sage text-white px-4 py-2 rounded-full inline-block text-sm font-semibold whitespace-nowrap">
+                            2023 - 2025
                         </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-700">Tableau</span>
-                            <span class="text-sage font-medium">Advanced</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-700">Apache Spark</span>
-                            <span class="text-sage font-medium">Intermediate</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-700">PostgreSQL</span>
-                            <span class="text-sage font-medium">Advanced</span>
-                        </div>
+                    </div>
+                    <div class="lg:w-3/4 lg:pl-8 border-l-4 border-terracotta pl-6 lg:pl-8">
+                        <h3 class="text-2xl font-bold text-charcoal mb-2 leading-tight">Multiple Client Projects</h3>
+                        <h4 class="text-lg text-bluegray font-medium mb-4 leading-relaxed">ANWB, Content Intelligence Agency, NPEC, DigiWerkPlaats, NAC Breda</h4>
+                        <p class="text-gray-600 leading-relaxed">
+                            Completed diverse projects including human trafficking analysis supporting 
+                            UN SDG 16, plant root segmentation for agricultural research, and 
+                            advanced NLP solutions for emotion detection and content analysis.
+                        </p>
                     </div>
                 </div>
-
-                <div class="bg-cream rounded-2xl p-6 scroll-reveal">
-                    <h3 class="text-lg font-bold mb-4 text-charcoal">Tools & Platforms</h3>
-                    <div class="space-y-2">
-                        <div class="flex justify-between">
-                            <span class="text-gray-700">Git/GitHub</span>
-                            <span class="text-sage font-medium">Expert</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-700">Jupyter</span>
-                            <span class="text-sage font-medium">Expert</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-700">Docker</span>
-                            <span class="text-sage font-medium">Intermediate</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-700">AWS/Azure</span>
-                            <span class="text-sage font-medium">Intermediate</span>
+                
+                <!-- Timeline Item 4 -->
+                <div class="flex flex-col lg:flex-row items-start scroll-reveal">
+                    <div class="lg:w-1/4 mb-4 lg:mb-0 lg:text-right lg:pr-8">
+                        <div class="bg-sage text-white px-4 py-2 rounded-full inline-block text-sm font-semibold whitespace-nowrap">
+                            2022 - Present
                         </div>
                     </div>
+                    <div class="lg:w-3/4 lg:pl-8 border-l-4 border-sage pl-6 lg:pl-8">
+                        <h3 class="text-2xl font-bold text-charcoal mb-2 leading-tight">Data Science & AI Studies</h3>
+                        <h4 class="text-lg text-bluegray font-medium mb-4 leading-relaxed">Breda University of Applied Sciences</h4>
+                        <p class="text-gray-600 leading-relaxed">
+                            Pursuing comprehensive education in Data Science and AI, focusing on 
+                            machine learning, computer vision, natural language processing, 
+                            and ethical AI development with strong emphasis on practical applications.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Focus -->
+    <section class="py-20 bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Current Focus</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    What I'm working on and looking forward to
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:-translate-y-2 scroll-reveal">
+                    <div class="w-16 h-16 bg-gradient-to-br from-sage to-bluegray rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-briefcase text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-charcoal mb-4 text-center">Internship Opportunities</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Actively seeking a 20-week internship placement starting February 2026 
+                        in Netherlands-based or fully remote Data Science & AI roles. Looking 
+                        for opportunities to apply my skills in real-world business environments 
+                        and contribute to impactful projects.
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:-translate-y-2 scroll-reveal">
+                    <div class="w-16 h-16 bg-gradient-to-br from-bluegray to-terracotta rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-brain text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-charcoal mb-4 text-center">Advanced AI Research</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Continuing to explore cutting-edge AI applications, particularly in 
+                        medical imaging, computer vision, and natural language processing. 
+                        Currently investigating transformer architectures and their applications 
+                        in multimodal AI systems.
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:-translate-y-2 scroll-reveal">
+                    <div class="w-16 h-16 bg-gradient-to-br from-terracotta to-sage rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-graduation-cap text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-charcoal mb-4 text-center">Professional Development</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Strengthening foundational knowledge in data science fundamentals, 
+                        particularly focusing on data preprocessing, quality assessment, and 
+                        advanced statistical analysis to complement my technical project portfolio 
+                        and documentation expertise.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Personal Interests -->
-    <section class="py-20 bg-cream">
+    <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Beyond Data Science</h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Personal interests and activities that shape my perspective and drive innovation
+                    Personal interests and activities that inspire my work
                 </p>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white rounded-2xl p-8 shadow-lg scroll-reveal">
-                    <div class="w-16 h-16 bg-gradient-to-br from-sage to-bluegray rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                        </svg>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-cream rounded-2xl p-6 hover:shadow-lg transition-all duration-300 hover:transform hover:-translate-y-2 scroll-reveal">
+                    <div class="w-12 h-12 bg-gradient-to-br from-sage to-bluegray rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-book-reader text-lg text-white"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-center text-charcoal">Continuous Learning</h3>
-                    <p class="text-gray-600 text-center">
-                        Passionate about staying current with the latest developments in AI and data science through 
-                        research papers, online courses, and technical conferences.
+                    <h4 class="text-lg font-bold text-charcoal mb-3 text-center">Continuous Learning</h4>
+                    <p class="text-gray-600 text-center text-sm leading-relaxed">
+                        Avid reader of AI research papers, technology blogs, and industry publications. 
+                        Always exploring new methodologies and staying current with developments.
                     </p>
                 </div>
-
-                <div class="bg-white rounded-2xl p-8 shadow-lg scroll-reveal">
-                    <div class="w-16 h-16 bg-gradient-to-br from-terracotta to-sage rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
+                
+                <div class="bg-cream rounded-2xl p-6 hover:shadow-lg transition-all duration-300 hover:transform hover:-translate-y-2 scroll-reveal">
+                    <div class="w-12 h-12 bg-gradient-to-br from-bluegray to-terracotta rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-users text-lg text-white"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-center text-charcoal">Global Perspective</h3>
-                    <p class="text-gray-600 text-center">
-                        Interested in how data science can address global challenges, from sustainable development 
-                        to humanitarian efforts and environmental conservation.
+                    <h4 class="text-lg font-bold text-charcoal mb-3 text-center">Student Leadership</h4>
+                    <p class="text-gray-600 text-center text-sm leading-relaxed">
+                        Passionate about improving educational experiences and fostering collaboration 
+                        between students and faculty in academic environments.
                     </p>
                 </div>
-
-                <div class="bg-white rounded-2xl p-8 shadow-lg scroll-reveal">
-                    <div class="w-16 h-16 bg-gradient-to-br from-bluegray to-terracotta rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-                        </svg>
+                
+                <div class="bg-cream rounded-2xl p-6 hover:shadow-lg transition-all duration-300 hover:transform hover:-translate-y-2 scroll-reveal">
+                    <div class="w-12 h-12 bg-gradient-to-br from-terracotta to-sage rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-globe text-lg text-white"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-center text-charcoal">Educational Excellence</h3>
-                    <p class="text-gray-600 text-center">
-                        Committed to improving data science education quality through active participation in 
-                        programme committees and curriculum development. Advocate for accessible, practical 
-                        learning experiences that bridge academic theory with industry practice.
+                    <h4 class="text-lg font-bold text-charcoal mb-3 text-center">Global Perspectives</h4>
+                    <p class="text-gray-600 text-center text-sm leading-relaxed">
+                        Interested in how AI can address global challenges and create positive 
+                        social impact across different cultures and communities.
+                    </p>
+                </div>
+                
+                <div class="bg-cream rounded-2xl p-6 hover:shadow-lg transition-all duration-300 hover:transform hover:-translate-y-2 scroll-reveal">
+                    <div class="w-12 h-12 bg-gradient-to-br from-sage to-bluegray rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-file-alt text-lg text-white"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-charcoal mb-3 text-center">Technical Writing</h4>
+                    <p class="text-gray-600 text-center text-sm leading-relaxed">
+                        Strong focus on clear documentation and technical communication, 
+                        making complex AI concepts accessible through comprehensive writing.
                     </p>
                 </div>
             </div>
@@ -512,20 +551,22 @@
     </section>
 
     <!-- Contact CTA -->
-    <section class="py-20 bg-charcoal text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="scroll-reveal">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">Let's Work Together</h2>
-                <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-                    Ready to collaborate on your next data science project? I'm always interested in discussing 
-                    new opportunities and challenges in the world of AI and machine learning.
+    <section class="py-20 bg-gradient-to-br from-sage to-bluegray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center text-white scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Let's Connect</h2>
+                <p class="text-xl mb-8 max-w-3xl mx-auto opacity-90">
+                    I'm always interested in discussing new opportunities, collaborating on interesting 
+                    projects, or simply connecting with fellow data science and AI enthusiasts.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="index.html#contact" class="bg-sage text-white px-8 py-3 rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                        Start a Conversation
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="index.html#contact" class="inline-flex items-center space-x-2 bg-white text-sage px-8 py-4 rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg font-medium">
+                        <i class="fas fa-envelope"></i>
+                        <span>Get In Touch</span>
                     </a>
-                    <a href="https://www.linkedin.com/in/anastasiia-mokhonko" target="_blank" class="border-2 border-sage text-sage px-8 py-3 rounded-full hover:bg-sage hover:text-white transition-all duration-300 transform hover:scale-105">
-                        Connect on LinkedIn
+                    <a href="https://linkedin.com/in/anastasiia-mokhonko" target="_blank" class="inline-flex items-center space-x-2 bg-transparent border-2 border-white text-white px-8 py-4 rounded-full hover:bg-white hover:text-sage transition-all duration-300 transform hover:scale-105 font-medium">
+                        <i class="fab fa-linkedin-in"></i>
+                        <span>Connect on LinkedIn</span>
                     </a>
                 </div>
             </div>
@@ -533,48 +574,98 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-charcoal text-white py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-gray-400">
-                © 2025 Anastasiia Mokhonko. All rights reserved. Built with passion for data science and AI.
-            </p>
+    <footer class="bg-charcoal text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-bold gradient-text mb-4">Anastasiia Mokhonko</h3>
+                    <p class="text-gray-400 mb-6 max-w-md">
+                        Data Science & AI Student passionate about creating meaningful solutions 
+                        that drive real-world impact through innovative technology.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://linkedin.com/in/anastasiia-mokhonko" target="_blank" class="w-10 h-10 bg-sage rounded-full flex items-center justify-center hover:bg-opacity-80 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/AnastasiiaMokhonko234301" target="_blank" class="w-10 h-10 bg-sage rounded-full flex items-center justify-center hover:bg-opacity-80 transition-colors">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:mohonko.anastasia@gmail.com" class="w-10 h-10 bg-sage rounded-full flex items-center justify-center hover:bg-opacity-80 transition-colors">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Navigation</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html#home" class="hover:text-sage transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-sage transition-colors">About</a></li>
+                        <li><a href="index.html#projects" class="hover:text-sage transition-colors">Projects</a></li>
+                        <li><a href="certificates.html" class="hover:text-sage transition-colors">Certificates</a></li>
+                        <li><a href="index.html#contact" class="hover:text-sage transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Connect</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="https://linkedin.com/in/anastasiia-mokhonko" target="_blank" class="hover:text-sage transition-colors">LinkedIn</a></li>
+                        <li><a href="https://github.com/AnastasiiaMokhonko234301" target="_blank" class="hover:text-sage transition-colors">GitHub</a></li>
+                        <li><a href="mailto:mohonko.anastasia@gmail.com" class="hover:text-sage transition-colors">Email</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>© 2025 Anastasiia Mokhonko. All rights reserved. Built with passion for data science and AI.</p>
+            </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script>
-        // Initialize navigation and animations
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeNavigation();
-            initializeScrollReveal();
+        // Scroll reveal animation
+        function scrollReveal() {
+            const reveals = document.querySelectorAll('.scroll-reveal');
+            
+            reveals.forEach(reveal => {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveal.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('revealed');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', scrollReveal);
+        scrollReveal(); // Check on page load
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
 
-        function initializeNavigation() {
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
             });
-        }
-
-        function initializeScrollReveal() {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('revealed');
-                    }
-                });
-            }, observerOptions);
-            
-            document.querySelectorAll('.scroll-reveal').forEach(el => {
-                observer.observe(el);
-            });
-        }
+        });
     </script>
 </body>
 </html>
