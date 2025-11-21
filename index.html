@@ -266,17 +266,43 @@
             }
         }
         
+        /* Mobile responsiveness */
         @media (max-width: 768px) {
             .project-slide {
-                flex-direction: column;
+            flex-direction: column;
+            min-height: auto;
             }
-            
+
+            .project-slide div {
+            width: 100% !important;
+            }
+
             .project-image {
-                min-height: 50vh;
+            min-height: 40vh;
+            width: 100% !important;
             }
-            
+
+            .project-slide > div:nth-child(2) {
+            padding: 2rem 1rem;
+            }
+
             .nav-arrow {
-                display: none;
+            display: none;
+            }
+
+            .project-counter {
+            top: 16px;
+            right: 16px;
+            font-size: 12px;
+            padding: 6px 12px;
+            }
+
+            .project-slide h3 {
+            font-size: 2rem !important;
+            }
+
+            .project-slide p {
+            font-size: 1rem !important;
             }
         }
     </style>
