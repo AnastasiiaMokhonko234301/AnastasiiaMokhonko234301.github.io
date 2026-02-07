@@ -140,23 +140,23 @@ const projectData = [
     },
     {
         id: 8,
-        title: "Medical Imaging AI System",
+        title: "Medical AI System",
         role: "computer-vision",
         category: "ml-engineer",
         image: "resources/project-covers/medical-ai.jpg",
-        description: "Deep learning system for medical image analysis and automated diagnostics in healthcare applications.",
-        technologies: ["Python", "PyTorch", "Medical Imaging", "Deep Learning", "3D CNN"],
+        description: "Successfully developed an advanced deep learning system for automated medical image analysis from CT scans.",
+        technologies: ["Python", "PyTorch", "3D U-Net", "ResU-Net", "V-Net", "nnU-Net", "SimpleITK", "Medical Imaging"],
         githubUrl: "#",
         client: "Healthcare Research Partner",
-        duration: "Ongoing",
+        duration: "Completed",
         outcomes: [
-            "Currently in active development",
-            "Developing advanced deep learning models",
-            "Focus on medical image segmentation",
-            "Collaborative research project"
+            "Successfully implemented 3D medical image segmentation",
+            "Built automated CT scan preprocessing pipelines",
+            "Created comprehensive validation frameworks",
+            "Project successfully completed"
         ],
-        detailedDescription: "Ongoing research project focused on developing deep learning solutions for medical image analysis. The project involves advanced computer vision techniques and 3D convolutional neural networks for automated diagnostic support in healthcare settings. Work is conducted under confidentiality agreement with research partners.",
-        isWorkInProgress: true
+        detailedDescription: "Successfully developed an advanced deep learning system for automated medical image analysis from CT scans. Implemented and evaluated multiple state-of-the-art architectures including 3D U-Net, ResU-Net, V-Net, and nnU-Net with comprehensive data preprocessing pipelines for medical imaging applications. Work was conducted under confidentiality agreement with research partners.",
+        isWorkInProgress: false
     }
 ];
 
